@@ -57,29 +57,39 @@
             </a>
             <nav id="main-nav">
                 
-                    <a class="main-nav-link" href="/.">主页</a>
-                
-                    <a class="main-nav-link" href="/archives">归档</a>
-                
-                    <a class="main-nav-link" href="/categories">分类</a>
-                
-                    <a class="main-nav-link" href="/tags">标签</a>
-                
-                    <a class="main-nav-link" href="/about">关于</a>
-                
+                    <a class="main-nav-link" href="/.">
+                        主页
+                    </a>
+                    
+                    <a class="main-nav-link" href="/archives">
+                        归档
+                    </a>
+                    
+                    <a class="main-nav-link" href="/categories">
+                        分类
+                    </a>
+                    
+                    <a class="main-nav-link" href="/tags">
+                        标签
+                    </a>
+                    
+                    <a class="main-nav-link" href="/about">
+                        关于
+                    </a>
+                    
             </nav>
             
                 
-                <nav id="sub-nav">
-                    <div class="profile" id="profile-nav">
-                        <a id="profile-anchor" href="javascript:;">
+                    <nav id="sub-nav">
+                        <div class="profile" id="profile-nav">
+                            <a id="profile-anchor" href="javascript:;">
                             <img class="avatar" src="/css/images/avatar.jpg" />
                             <i class="fa fa-caret-down"></i>
                         </a>
-                    </div>
-                </nav>
-            
-            <div id="search-form-wrap">
+                        </div>
+                    </nav>
+                    
+                        <div id="search-form-wrap">
 
     <form class="search-form">
         <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
@@ -122,28 +132,47 @@
         <table class="menu outer">
             <tr>
                 
-                    <td><a class="main-nav-link" href="/.">home</a></td>
-                
-                    <td><a class="main-nav-link" href="/archives">archives</a></td>
-                
-                    <td><a class="main-nav-link" href="/categories">categories</a></td>
-                
-                    <td><a class="main-nav-link" href="/tags">tags</a></td>
-                
-                    <td><a class="main-nav-link" href="/about">about</a></td>
-                
-                <td>
+                    <td>
+                        <a class="main-nav-link" href="/.">
+                            主页
+                        </a>
+                    </td>
                     
+                    <td>
+                        <a class="main-nav-link" href="/archives">
+                            归档
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a class="main-nav-link" href="/categories">
+                            分类
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a class="main-nav-link" href="/tags">
+                            标签
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a class="main-nav-link" href="/about">
+                            关于
+                        </a>
+                    </td>
+                    
+                        <td>
+                            
     <div class="search-form">
         <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
     </div>
 
-                </td>
+                        </td>
             </tr>
         </table>
     </div>
 </header>
-
         <div class="outer">
             
                 
@@ -159,11 +188,11 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                5
+                1
                 <span>文章</span>
             </div>
             <div class="article-info-block">
-                3
+                1
                 <span>标签</span>
             </div>
         </div>
@@ -206,500 +235,6 @@
 
             
             <section id="main">
-    <article id="post-使用GitHub-Hexo搭建自域名的个人博客系统" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2016/09/04/使用GitHub-Hexo搭建自域名的个人博客系统/">使用GitHub+Hexo搭建自域名的个人博客系统</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/09/04/使用GitHub-Hexo搭建自域名的个人博客系统/">
-            <time datetime="2016-09-04T12:31:19.000Z" itemprop="datePublished">2016-09-04</time>
-        </a>
-    </div>
-
-
-                        
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://www.whoosh.site/2016/09/04/使用GitHub-Hexo搭建自域名的个人博客系统/" data-id="cjdoduu010002d0v9n9yf7p7a" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://www.whoosh.site/2016/09/04/使用GitHub-Hexo搭建自域名的个人博客系统/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.whoosh.site/2016/09/04/使用GitHub-Hexo搭建自域名的个人博客系统/">评论</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-如何绑定自己的域名到GitHub上" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2016/09/04/如何绑定自己的域名到GitHub上/">如何绑定自己的域名到GitHub上</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/09/04/如何绑定自己的域名到GitHub上/">
-            <time datetime="2016-09-04T12:31:09.000Z" itemprop="datePublished">2016-09-04</time>
-        </a>
-    </div>
-
-
-                        
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://www.whoosh.site/2016/09/04/如何绑定自己的域名到GitHub上/" data-id="cjdoduu0h0004d0v9unstu6sf" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://www.whoosh.site/2016/09/04/如何绑定自己的域名到GitHub上/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.whoosh.site/2016/09/04/如何绑定自己的域名到GitHub上/">评论</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-静态博客框架Hexo使用教程" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2016/09/04/静态博客框架Hexo使用教程/">静态博客框架Hexo使用教程</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/09/04/静态博客框架Hexo使用教程/">
-            <time datetime="2016-09-04T12:30:44.000Z" itemprop="datePublished">2016-09-04</time>
-        </a>
-    </div>
-
-
-                        
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://www.whoosh.site/2016/09/04/静态博客框架Hexo使用教程/" data-id="cjdoduu0h0005d0v9ia92f9yk" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://www.whoosh.site/2016/09/04/静态博客框架Hexo使用教程/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.whoosh.site/2016/09/04/静态博客框架Hexo使用教程/">评论</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-GitHub入门教程-配置SSH" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2016/09/02/GitHub入门教程-配置SSH/">GitHub入门教程-配置SSH</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/09/02/GitHub入门教程-配置SSH/">
-            <time datetime="2016-09-02T13:56:36.000Z" itemprop="datePublished">2016-09-02</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/GitHub/">GitHub</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/GitHub/">GitHub</a>, <a class="tag-link" href="/tags/SSH/">SSH</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://www.whoosh.site/2016/09/02/GitHub入门教程-配置SSH/" data-id="cjdoduu0h0006d0v9vlx765jn" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://www.whoosh.site/2016/09/02/GitHub入门教程-配置SSH/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.whoosh.site/2016/09/02/GitHub入门教程-配置SSH/">评论</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <article id="post-Markdown语法简介" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -850,7 +385,7 @@
 
 </div>
 
-    <a data-url="http://www.whoosh.site/2016/09/01/Markdown语法简介/" data-id="cjdoduu0h0007d0v95l2h0liv" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://www.whoosh.site/2016/09/01/Markdown语法简介/" data-id="cjdofldtv0002n8v9qmo19dln" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -941,82 +476,6 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2016/09/04/使用GitHub-Hexo搭建自域名的个人博客系统/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2016/09/04/使用GitHub-Hexo搭建自域名的个人博客系统/" class="title">使用GitHub+Hexo搭建自域名的个人博客系统</a></p>
-                            <p class="item-date"><time datetime="2016-09-04T12:31:19.000Z" itemprop="datePublished">2016-09-04</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2016/09/04/如何绑定自己的域名到GitHub上/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2016/09/04/如何绑定自己的域名到GitHub上/" class="title">如何绑定自己的域名到GitHub上</a></p>
-                            <p class="item-date"><time datetime="2016-09-04T12:31:09.000Z" itemprop="datePublished">2016-09-04</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2016/09/04/静态博客框架Hexo使用教程/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2016/09/04/静态博客框架Hexo使用教程/" class="title">静态博客框架Hexo使用教程</a></p>
-                            <p class="item-date"><time datetime="2016-09-04T12:30:44.000Z" itemprop="datePublished">2016-09-04</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2016/09/02/GitHub入门教程-配置SSH/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/GitHub/">GitHub</a></p>
-                            <p class="item-title"><a href="/2016/09/02/GitHub入门教程-配置SSH/" class="title">GitHub入门教程-配置SSH</a></p>
-                            <p class="item-date"><time datetime="2016-09-02T13:56:36.000Z" itemprop="datePublished">2016-09-02</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
                             <a href="/2016/09/01/Markdown语法简介/" class="thumbnail">
     
     
@@ -1042,7 +501,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/GitHub/">GitHub</a><span class="category-list-count">2</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/GitHub/">GitHub</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1051,7 +510,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">5</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1060,7 +519,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/">GitHub</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSH/">SSH</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1069,7 +528,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a>
+            <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a>
         </div>
     </div>
 
