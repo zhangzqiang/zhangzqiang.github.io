@@ -3,19 +3,28 @@
 <head>
     <meta charset="utf-8">
     
-    <title>WHOOSH</title>
+    <title>树莓派3 声音传感器(Win10 IoT) | WHOOSH</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="张正强、技术分享">
-<meta property="og:type" content="website">
-<meta property="og:title" content="WHOOSH">
-<meta property="og:url" content="http://www.whoosh.site/about/index.html">
+    <meta name="description" content="通过对声音传感器的调试，了解树莓派与硬件交互过程，算是一场有趣的实操经验。">
+<meta name="keywords" content="树莓派,传感器,Win10 IoT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树莓派3 声音传感器(Win10 IoT)">
+<meta property="og:url" content="http://www.whoosh.site/2016/04/25/20160425_树莓派3 声音传感器-Win10/index.html">
 <meta property="og:site_name" content="WHOOSH">
-<meta property="og:description" content="张正强、技术分享">
+<meta property="og:description" content="通过对声音传感器的调试，了解树莓派与硬件交互过程，算是一场有趣的实操经验。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-02-10T18:03:24.000Z">
+<meta property="og:image" content="http://od9w3prcn.bkt.clouddn.com/%E4%BC%A0%E6%84%9F%E5%99%A8%E5%85%A8%E5%AE%B6%E7%A6%8F.png">
+<meta property="og:image" content="http://od9w3prcn.bkt.clouddn.com/%E5%A3%B0%E9%9F%B3%E4%BC%A0%E6%84%9F%E5%99%A8%E7%94%B5%E8%B7%AF%E5%9B%BE.png">
+<meta property="og:image" content="http://od9w3prcn.bkt.clouddn.com/%E6%B5%8B%E8%AF%95%E6%8E%A5%E7%BA%BF%E5%9B%BE.png">
+<meta property="og:image" content="http://od9w3prcn.bkt.clouddn.com/%E6%A0%91%E8%8E%93%E6%B4%BEGPIO%E5%BC%95%E8%84%9A%E4%BD%8D%E7%BD%AE%E5%9B%BE.jpg">
+<meta property="og:image" content="http://od9w3prcn.bkt.clouddn.com/%E4%BC%A0%E6%84%9F%E5%99%A8%E6%8E%A5%E7%BA%BF%E5%9B%BE1.png">
+<meta property="og:image" content="http://od9w3prcn.bkt.clouddn.com/%E4%BC%A0%E6%84%9F%E5%99%A8%E6%8E%A5%E7%BA%BF%E5%9B%BE2.png">
+<meta property="og:image" content="http://od9w3prcn.bkt.clouddn.com/%E4%BC%A0%E6%84%9F%E5%99%A8%E7%82%B9%E4%BA%AE%E6%95%88%E6%9E%9C%E5%9B%BE.gif">
+<meta property="og:updated_time" content="2018-02-16T12:37:12.912Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WHOOSH">
-<meta name="twitter:description" content="张正强、技术分享">
+<meta name="twitter:title" content="树莓派3 声音传感器(Win10 IoT)">
+<meta name="twitter:description" content="通过对声音传感器的调试，了解树莓派与硬件交互过程，算是一场有趣的实操经验。">
+<meta name="twitter:image" content="http://od9w3prcn.bkt.clouddn.com/%E4%BC%A0%E6%84%9F%E5%99%A8%E5%85%A8%E5%AE%B6%E7%A6%8F.png">
     
 
     
@@ -235,15 +244,82 @@
 </aside>
 
             
-            <section id="main"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-20160425_树莓派3 声音传感器-Win10" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
                     
+                        <header class="article-header">
+                            
+    
+        <h1 class="article-title" itemprop="name">
+            树莓派3 声音传感器(Win10 IoT)
+        </h1>
+    
+
+                                
+                                    <div class="article-meta">
+                                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/04/25/20160425_树莓派3 声音传感器-Win10/">
+            <time datetime="2016-04-24T16:35:58.000Z" itemprop="datePublished">2016-04-25</time>
+        </a>
+    </div>
+
+
+                                            
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/树莓派/">树莓派</a>
+    </div>
+
+                                                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Win10-IoT/">Win10 IoT</a>, <a class="tag-link" href="/tags/传感器/">传感器</a>, <a class="tag-link" href="/tags/树莓派/">树莓派</a>
+    </div>
+
+                                    </div>
+                                    
+                        </header>
+                        
                             
                                 <div class="article-entry" itemprop="articleBody">
                                     
                                             
-                                                    
+                                                    <h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>这段时间太忙了，项目收尾一直没有时间继续捣鼓树莓派，正好趁这个双休抽点时间来和我的小伙伴玩耍一把。上篇文章提到我想用Win10 Iot Core和买来的一堆传感器摩擦出一些火花，虽然，已经有很多前辈做过，但是我没有做过啊，没做过又怎么能体会到实践的乐趣呢。先来一张传感器全家福吧！<br><img src="http://od9w3prcn.bkt.clouddn.com/%E4%BC%A0%E6%84%9F%E5%99%A8%E5%85%A8%E5%AE%B6%E7%A6%8F.png" alt="传感器全家福"></p>
+<h1 id="声音传感器"><a href="#声音传感器" class="headerlink" title="声音传感器"></a>声音传感器</h1><p>这么一大堆传感器，要先玩那个呢，啊！纠结症又犯了，挑挑拣拣了好久，最后决定先搞一个简单点的—声音检测传感器。</p>
+<p>那么，接下来就是看资料了，还好店家提供相关技术文档，这里为避嫌，就不提供店家地址。其实原理很简单，电路图如下：<br><img src="http://od9w3prcn.bkt.clouddn.com/%E5%A3%B0%E9%9F%B3%E4%BC%A0%E6%84%9F%E5%99%A8%E7%94%B5%E8%B7%AF%E5%9B%BE.png" alt="声音传感器电路图"></p>
+<p>以下是我摘录的：</p>
+<blockquote>
+<h3 id="模块描述"><a href="#模块描述" class="headerlink" title="模块描述"></a>模块描述</h3><ul>
+<li>可以检测周围环境的声音强度 ,使用注意：此传感器只能识别声音的有无（根据震动原理）不能识别声音的大小或者特定频率的声音</li>
+<li>灵敏度可调（图中蓝色数字电位器调节）</li>
+<li>工作电压3.3V-5V</li>
+<li>输出形式数字开关量输出（0和1高低电平）<h3 id="模块接口说明"><a href="#模块接口说明" class="headerlink" title="模块接口说明"></a>模块接口说明</h3></li>
+<li>VCC外接3.3V-5V电压（可以直接与 5v 单片机和3.3v单片机相连）</li>
+<li>GND外接GND</li>
+<li>DO小板数字量输出接口（0和 1）<h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3></li>
+<li>声音模块对环境声音强度最敏感，一般用来检测周围环境的声音强度。</li>
+<li>模块在环境声音强度达不到设定阈值时，DO口输出高电平，当外界环境声音强度超过设定阈值时，模块 D0输出低电平</li>
+<li>小板数字量输出 D0可以与单片机直接相连，通过单片机来检测高低电平，由此来检测环境的声音</li>
+</ul>
+</blockquote>
+<h1 id="检查传感器"><a href="#检查传感器" class="headerlink" title="检查传感器"></a>检查传感器</h1><p>了解了声音传感器基本结构后，我们要做的就是检查声音传感器是否正常：在相对安静的环境中，将模块的VCC接到树莓派的3.3V PWR电源正极上，将模块的GND接到树莓派的GND上（我选了39），此时，模块的电源指示灯会亮，说明你的传感器OK。如果开关提示也亮了，说明传感器对当前环境声音太灵敏了，可以调节蓝色数字电位器，使之灵敏度降低。附上测试接线图和树莓派GPIO引脚位置图：<br><img src="http://od9w3prcn.bkt.clouddn.com/%E6%B5%8B%E8%AF%95%E6%8E%A5%E7%BA%BF%E5%9B%BE.png" alt="测试接线图"><br><img src="http://od9w3prcn.bkt.clouddn.com/%E6%A0%91%E8%8E%93%E6%B4%BEGPIO%E5%BC%95%E8%84%9A%E4%BD%8D%E7%BD%AE%E5%9B%BE.jpg" alt="树莓派GPIO引脚位置图"></p>
+<h1 id="如何接线"><a href="#如何接线" class="headerlink" title="如何接线"></a>如何接线</h1><p>我使用了6根杜邦线（3根公对母，3根公对公），具体接线步骤：</p>
+<ol>
+<li>将第一根公对母杜邦线母端接到树莓派3.3V PWR电源引脚上，公端接到面包 板的正极上（红线）</li>
+<li>将第二根公对母杜邦线母端接到树莓派GND负极引脚上，公端接到面包板负极上（棕线）</li>
+<li>将第三根公对母杜邦线母端接到树莓派GPIO 5引脚上，公端接到LED灯长脚上（灰线）</li>
+<li>将第一根公对公杜邦线的一端接到面包板电源正极上，另一端接到传感器VCC上（红线）</li>
+<li>将第二根公对公杜邦线的一端接到面包板电源负极上，另一端接到传感器GND上（棕线）</li>
+<li>将最后一根公对公杜邦线的一端接到传感器的OutPut(DO)上，另一端接到LED等的短脚上（紫线）。</li>
+</ol>
+<p>最后接线如图所示：</p>
+<p> <img src="http://od9w3prcn.bkt.clouddn.com/%E4%BC%A0%E6%84%9F%E5%99%A8%E6%8E%A5%E7%BA%BF%E5%9B%BE1.png" alt="传感器接线图1"><br> <img src="http://od9w3prcn.bkt.clouddn.com/%E4%BC%A0%E6%84%9F%E5%99%A8%E6%8E%A5%E7%BA%BF%E5%9B%BE2.png" alt="传感器接线图2"></p>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><p>见证奇迹的时刻到了，新建一个UWP空白应用（通用Windows），将以下代码粘到MainPage中，然后部署到树莓派中的Win10中即可。至于怎么安装系统、部署应用和web远程控制，待我下次整理出一个文档，当然，你也可以自己在网上搜。另外：源码来源于网友汪宇杰<a href="http://edi.wang/" target="_blank" rel="noopener">Edi.Wang</a>。<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">sealed</span> <span class="keyword">partial</span> <span class="keyword">class</span> <span class="title">MainPage</span> : <span class="title">Page</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//LED灯引脚</span></span><br><span class="line">        <span class="keyword">public</span> GpioPin LedPin &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//声音传感器引脚</span></span><br><span class="line">        <span class="keyword">public</span> GpioPin SoundPin &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//保存LED灯的开关状态</span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">bool</span> IsLightOn &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">MainPage</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.InitializeComponent();</span><br><span class="line">            Loaded += OnLoaded;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> Loaded事件</span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="sender"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="routedEventArgs"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnLoaded</span>(<span class="params"><span class="keyword">object</span> sender, RoutedEventArgs routedEventArgs</span>)</span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="comment">//初始化GPIO控制器</span></span><br><span class="line">            <span class="keyword">var</span> controller = GpioController.GetDefault();</span><br><span class="line">            <span class="keyword">if</span> (<span class="literal">null</span> != controller)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">//LED是高电平输出表示开，所以第一次启动的时候要关灯，输出低电平</span></span><br><span class="line">                LedPin = controller.OpenPin(<span class="number">5</span>);</span><br><span class="line">                LedPin.SetDriveMode(GpioPinDriveMode.Output);</span><br><span class="line">                LedPin.Write(GpioPinValue.Low);</span><br><span class="line"></span><br><span class="line">                <span class="comment">//FC-04的GPIO 06端口是接受信号的，所以是输入</span></span><br><span class="line">                SoundPin = controller.OpenPin(<span class="number">6</span>);</span><br><span class="line">                SoundPin.SetDriveMode(GpioPinDriveMode.Input);</span><br><span class="line"></span><br><span class="line">                <span class="comment">//监测声音传感器引脚值得变化</span></span><br><span class="line">                SoundPin.ValueChanged += (pin, args) =&gt;</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="comment">//读取引脚值（FC-04传感器只有两个值0、1）</span></span><br><span class="line">                    <span class="keyword">var</span> pinValue = SoundPin.Read();</span><br><span class="line">                    <span class="comment">//FC-04检测到声音时候会在DO输出低电平</span></span><br><span class="line">                    <span class="keyword">if</span> (pinValue == GpioPinValue.Low)</span><br><span class="line">                    &#123;</span><br><span class="line">                        Debug.WriteLine(<span class="string">"Sound Detected!"</span>);</span><br><span class="line">                        <span class="comment">//开关灯操作（设置LED引脚值）</span></span><br><span class="line">                        LedPin.Write(IsLightOn ? GpioPinValue.Low : GpioPinValue.High);</span><br><span class="line">                        IsLightOn = !IsLightOn;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>在实践过程中遇到了不少问题，毕竟是小白，有很多不懂不会的地方，但是，还是那句话，只要思想不倒退，办法总比困难多。最后，来看一下效果图吧！<br><img src="http://od9w3prcn.bkt.clouddn.com/%E4%BC%A0%E6%84%9F%E5%99%A8%E7%82%B9%E4%BA%AE%E6%95%88%E6%9E%9C%E5%9B%BE.gif" alt="传感器点亮效果图"></p>
+
                                                         
                                 </div>
                                 <footer class="article-footer">
@@ -253,7 +329,7 @@
 
 </div>
 
-    <a data-url="http://www.whoosh.site/about/index.html" data-id="cjdpx86b7000eu4v9304rf2nr" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://www.whoosh.site/2016/04/25/20160425_树莓派3 声音传感器-Win10/" data-id="cjdpx86b3000du4v9ddf20mc2" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -321,13 +397,27 @@
 
                                         
     
-        <a href="http://www.whoosh.site/about/index.html#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.whoosh.site/about/index.html">评论</a>
+        <a href="http://www.whoosh.site/2016/04/25/20160425_树莓派3 声音传感器-Win10/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.whoosh.site/2016/04/25/20160425_树莓派3 声音传感器-Win10/">评论</a>
     
 
                                 </footer>
     </div>
     
         
+<nav id="article-nav">
+    
+        <a href="/2016/09/01/20160901_Markdown语法简介/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    Markdown语法简介
+                
+            </div>
+        </a>
+    
+    
+</nav>
+
 
             
 </article>
@@ -485,9 +575,9 @@
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://www.whoosh.site/about/index.html';
+            this.page.url = 'http://www.whoosh.site/2016/04/25/20160425_树莓派3 声音传感器-Win10/';
         
-        this.page.identifier = '';
+        this.page.identifier = '20160425_树莓派3 声音传感器-Win10';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
