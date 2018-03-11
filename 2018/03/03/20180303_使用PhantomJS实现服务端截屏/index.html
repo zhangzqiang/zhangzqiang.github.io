@@ -13,12 +13,12 @@
 <meta property="og:site_name" content="WHOOSH">
 <meta property="og:description" content="本文主要介绍PhantomJS相关知识，以及如何使用PhantomJS实现服务端截屏功能，文后列举了一些无浏览器图形界面的项目简单介绍。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://www.whoosh.site/images/phantomjs-logo.png">
-<meta property="og:updated_time" content="2018-03-11T13:37:07.398Z">
+<meta property="og:image" content="http://www.whoosh.site/images/phantomjs.png">
+<meta property="og:updated_time" content="2018-03-11T15:06:08.264Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用PhantomJS实现服务端截屏">
 <meta name="twitter:description" content="本文主要介绍PhantomJS相关知识，以及如何使用PhantomJS实现服务端截屏功能，文后列举了一些无浏览器图形界面的项目简单介绍。">
-<meta name="twitter:image" content="http://www.whoosh.site/images/phantomjs-logo.png">
+<meta name="twitter:image" content="http://www.whoosh.site/images/phantomjs.png">
     
 
     
@@ -284,7 +284,7 @@
                                                     <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>在一些前端项目中，有时会需要对页面或者某个div进行截屏，常见的方式是使用<a href="http://html2canvas.hertzen.com/" target="_blank" rel="noopener">html2canvas</a>来实现，这个方式的好处是显而易见的。但是，有时候也会出现以外，例如笔者碰到将复杂的svg截屏之后，发现图片与页面展示不一致，为了解决这个问题，查阅了很多资料。最后，通过PhantomJS实现了这个功能。</p>
 <h1 id="PhantomJS介绍"><a href="#PhantomJS介绍" class="headerlink" title="PhantomJS介绍"></a>PhantomJS介绍</h1><p><a href="http://phantomjs.org/" target="_blank" rel="noopener">PhantomJS</a>是一个服务器端的JavaScriptAPI的WebKit。它使用QtWebKit作为它核心浏览器的功能，作为隐形的浏览器，提供了诸如CSS选择器、支持Web标准、DOM操作、JSON、HTML5、Canvas、SVG等（WebGL、Flash、Video、Audio、CSS 3D是不支持的），同时也提供了处理文件I/O的操作，从而使你可以向操作系统读写文件等。PhantomJS的用处非常广泛，诸如网络监测、网页截屏、无需浏览器的 Web 测试、页面访问自动化等。</p>
 <h1 id="PhantomJS使用"><a href="#PhantomJS使用" class="headerlink" title="PhantomJS使用"></a>PhantomJS使用</h1><p>目前官方支持windows\Mac OS\Linux三大主流的环境的运行包，你可以根据你的运行环境选择要下载的包。下载地址：<a href="http://phantomjs.org/download.html" target="_blank" rel="noopener">http://phantomjs.org/download.html</a></p>
-<p>笔者的运行环境是win10，下载完成后解压文件，将bin目录下的phantomjs.exe和examples目录下的hello.js放到一个文件目录下，然后在cmd下运行phantomjs.exe，结果如下图。<br><img src="/images/phantomjs_hello.js.png" alt=""></p>
+<p>笔者的运行环境是win10，下载完成后解压文件，将bin目录下的phantomjs.exe和examples目录下的hello.js放到一个文件目录下，然后在cmd下运行phantomjs.exe，结果如下图。<br><img src="/images/20180303/01.png" alt=""></p>
 <p>phantomjs的命令格式如下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">phantomjs [options] somescript.js [arg1 [arg2 [...]]]</span><br></pre></td></tr></table></figure>
 <p>详细介绍参见<a href="http://phantomjs.org/api/command-line.html" target="_blank" rel="noopener">Command Line Interface</a></p>
@@ -690,7 +690,7 @@
                             <a href="/2018/03/03/20180303_使用PhantomJS实现服务端截屏/" class="thumbnail">
     
     
-        <span style="background-image:url(/images/phantomjs-logo.png)" alt="使用PhantomJS实现服务端截屏" class="thumbnail-image"></span>
+        <span style="background-image:url(/images/phantomjs.png)" alt="使用PhantomJS实现服务端截屏" class="thumbnail-image"></span>
     
 </a>
 
