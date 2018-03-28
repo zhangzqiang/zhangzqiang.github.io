@@ -14,7 +14,7 @@
 <meta property="og:description" content="本文主要介绍Svg相关知识。可缩放矢量图形（Scalable Vector Graphics，SVG）是基于可扩展标记语言（XML），用于描述二维矢量图形的一种图形格式的开放标准。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.whoosh.site/images/svg.jpg">
-<meta property="og:updated_time" content="2018-03-20T15:36:26.408Z">
+<meta property="og:updated_time" content="2018-03-28T14:47:04.239Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Svg的基本用法">
 <meta name="twitter:description" content="本文主要介绍Svg相关知识。可缩放矢量图形（Scalable Vector Graphics，SVG）是基于可扩展标记语言（XML），用于描述二维矢量图形的一种图形格式的开放标准。">
@@ -304,7 +304,33 @@
 </tr>
 </tbody>
 </table>
-<h1 id="矩形"><a href="#矩形" class="headerlink" title="矩形"></a>矩形</h1><h1 id="圆形"><a href="#圆形" class="headerlink" title="圆形"></a>圆形</h1><h1 id="椭圆"><a href="#椭圆" class="headerlink" title="椭圆"></a>椭圆</h1><h1 id="直线"><a href="#直线" class="headerlink" title="直线"></a>直线</h1><h1 id="多边形"><a href="#多边形" class="headerlink" title="多边形"></a>多边形</h1><h1 id="曲线"><a href="#曲线" class="headerlink" title="曲线"></a>曲线</h1><h1 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h1><h1 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h1><h1 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h1><h2 id="Stroke"><a href="#Stroke" class="headerlink" title="Stroke"></a>Stroke</h2><h2 id="滤镜"><a href="#滤镜" class="headerlink" title="滤镜"></a>滤镜</h2><h2 id="模糊效果"><a href="#模糊效果" class="headerlink" title="模糊效果"></a>模糊效果</h2><h2 id="阴影"><a href="#阴影" class="headerlink" title="阴影"></a>阴影</h2><h2 id="渐变"><a href="#渐变" class="headerlink" title="渐变"></a>渐变</h2><p><code>SVG 文件可通过以下标签嵌入 HTML 文档：&lt;embed&gt;、&lt;object&gt; 或者 &lt;iframe&gt;。在Firefox、Internet Explorer9、谷歌Chrome和Safari中，你可以直接在HTML嵌入SVG代码。</code></p>
+<h1 id="形状"><a href="#形状" class="headerlink" title="形状"></a>形状</h1><p>SVG 预定义的形状元素：矩形 <code>&lt;rect&gt;</code>、圆形 <code>&lt;circle&gt;</code>、椭圆 <code>&lt;ellipse&gt;</code>、线 <code>&lt;line&gt;</code>、折线 <code>&lt;polyline&gt;</code>、多边形 <code>&lt;polygon&gt;</code>、路径 <code>&lt;path&gt;</code>。</p>
+<h2 id="矩形"><a href="#矩形" class="headerlink" title="矩形"></a>矩形</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span> <span class="attr">version</span>=<span class="string">"1.1"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">rect</span> <span class="attr">width</span>=<span class="string">"250"</span> <span class="attr">height</span>=<span class="string">"100"</span> <span class="attr">x</span>=<span class="string">"20"</span> <span class="attr">y</span>=<span class="string">"20"</span> <span class="attr">rx</span>=<span class="string">"20"</span> <span class="attr">ry</span>=<span class="string">"20"</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">style</span>=<span class="string">"fill:red;stroke-width:5;stroke:black;fill-opacity:0.1;</span></span></span><br><span class="line"><span class="tag"><span class="string">    stroke-opacity:0.9;opacity:0.5"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><a href="/images/20170503/rect.svg" target="_blank">查看样例</a></p>
+<ul>
+<li>width 属性定义矩形的宽度</li>
+<li>height 属性定义矩形的高度</li>
+<li>x 属性定义矩形的左侧位置（例如，x=”0” 定义矩形到浏览器窗口左侧的距离是 0px）</li>
+<li>y 属性定义矩形的顶端位置（例如，y=”0” 定义矩形到浏览器窗口顶端的距离是 0px）</li>
+<li>rx 属性可使矩形产生圆角。</li>
+<li>ry 属性可使矩形产生圆角。</li>
+<li>style 属性用来定义 CSS 属性</li>
+</ul>
+<ol>
+<li>CSS 的 fill 属性定义矩形的填充颜色（rgb 值、颜色名或者十六进制值）</li>
+<li>CSS 的 stroke-width 属性定义矩形边框的宽度</li>
+<li>CSS 的 stroke 属性定义矩形边框的颜色</li>
+<li>CSS 的 fill-opacity 属性定义填充颜色透明度（合法的范围是：0 - 1）</li>
+<li>CSS 的 stroke-opacity 属性定义笔触颜色的透明度（合法的范围是：0 - 1）</li>
+<li>CSS 的 opacity 属性定义整个元素的透明值（合法的范围是：0 - 1）</li>
+</ol>
+<h2 id="圆形"><a href="#圆形" class="headerlink" title="圆形"></a>圆形</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span> <span class="attr">version</span>=<span class="string">"1.1"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span>=<span class="string">"100"</span> <span class="attr">cy</span>=<span class="string">"50"</span> <span class="attr">r</span>=<span class="string">"40"</span> <span class="attr">stroke</span>=<span class="string">"black"</span> <span class="attr">stroke-width</span>=<span class="string">"2"</span> </span></span><br><span class="line"><span class="tag">  <span class="attr">fill</span>=<span class="string">"red"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><a href="/images/20170503/circle.svg" target="_blank">查看样例</a></p>
+<ul>
+<li>cx和cy属性定义圆点的x和y坐标。如果省略cx和cy，圆的中心会被设置为(0, 0)</li>
+<li>r属性定义圆的半径</li>
+</ul>
+<h2 id="椭圆"><a href="#椭圆" class="headerlink" title="椭圆"></a>椭圆</h2><h2 id="直线"><a href="#直线" class="headerlink" title="直线"></a>直线</h2><h2 id="多边形"><a href="#多边形" class="headerlink" title="多边形"></a>多边形</h2><h2 id="曲线"><a href="#曲线" class="headerlink" title="曲线"></a>曲线</h2><h2 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h2><h1 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h1><h1 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h1><h2 id="Stroke"><a href="#Stroke" class="headerlink" title="Stroke"></a>Stroke</h2><h2 id="滤镜"><a href="#滤镜" class="headerlink" title="滤镜"></a>滤镜</h2><h2 id="模糊效果"><a href="#模糊效果" class="headerlink" title="模糊效果"></a>模糊效果</h2><h2 id="阴影"><a href="#阴影" class="headerlink" title="阴影"></a>阴影</h2><h2 id="渐变"><a href="#渐变" class="headerlink" title="渐变"></a>渐变</h2><p><code>SVG 文件可通过以下标签嵌入 HTML 文档：&lt;embed&gt;、&lt;object&gt; 或者 &lt;iframe&gt;。在Firefox、Internet Explorer9、谷歌Chrome和Safari中，你可以直接在HTML嵌入SVG代码。</code></p>
 <p><a href="http://www.html5tricks.com/tag/svg/" target="_blank" rel="noopener">http://www.html5tricks.com/tag/svg/</a><br><a href="https://www.whatled.com/post-1876.html" target="_blank" rel="noopener">https://www.whatled.com/post-1876.html</a></p>
 
                                                         
@@ -317,7 +343,7 @@
 
 </div>
 
-    <a data-url="http://www.whoosh.site/2017/05/03/20170503_Svg的基本用法/" data-id="cjezqvpj40000j8v94prwgizt" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://www.whoosh.site/2017/05/03/20170503_Svg的基本用法/" data-id="cjfb6jax20000lkv9c2bsnz6c" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
