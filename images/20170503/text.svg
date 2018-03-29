@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <path id="path1" d="M75,20 a1,1 0 0,0 100,0" />
+    </defs>
+    <text x="10" y="100" fill="red" transform="rotate(30 20,40)" style="fill:red;">
+        <textPath xlink:href="#path1">I love SVG In Text Path</textPath>
+        <a xlink:href="http://www.whoosh.site/" target="_blank">
+            <tspan x="10" y="45"> I love SVG</tspan>
+        </a>
+    </text>
+</svg>
