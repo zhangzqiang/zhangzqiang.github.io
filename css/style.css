@@ -137,9 +137,6 @@ code {
   font-family: "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace;
   background-color: #f8f8f8;
 }
-table th:first-of-type {
-  width: 100px;
-}
 .outer {
   max-width: 1320px;
   margin: 0 auto;
@@ -951,6 +948,9 @@ a.article-title:hover {
   font-weight: bold;
   border-bottom: 3px solid #eceff2;
   padding-bottom: 0.5em;
+}
+.article-entry th:first-of-type {
+  width: 100px;
 }
 .article-entry td {
   border-bottom: 1px solid #eceff2;
