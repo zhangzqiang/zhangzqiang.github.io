@@ -3,18 +3,22 @@
 <head>
     <meta charset="utf-8">
     
-    <title>归档: 2016/4 | WHOOSH</title>
+    <title>ReactNative自学03-组件的生命周期 | WHOOSH</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="张正强、技术分享">
-<meta property="og:type" content="website">
-<meta property="og:title" content="WHOOSH">
-<meta property="og:url" content="http://www.whoosh.site/archives/2016/04/index.html">
+    <meta name="description" content="主要介绍ReactNative组件的生命周期，一般说到组件的生命周期，基本上都会遵循创建、运行、销毁三个过程，RN组件的生命周期也如此。">
+<meta name="keywords" content="ReactNative">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ReactNative自学03-组件的生命周期">
+<meta property="og:url" content="http://www.whoosh.site/2016/11/15/20161115_ReactNative自学03_组件的生命周期/index.html">
 <meta property="og:site_name" content="WHOOSH">
-<meta property="og:description" content="张正强、技术分享">
+<meta property="og:description" content="主要介绍ReactNative组件的生命周期，一般说到组件的生命周期，基本上都会遵循创建、运行、销毁三个过程，RN组件的生命周期也如此。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.whoosh.site/images/react.png">
+<meta property="og:updated_time" content="2018-04-07T10:43:15.497Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WHOOSH">
-<meta name="twitter:description" content="张正强、技术分享">
+<meta name="twitter:title" content="ReactNative自学03-组件的生命周期">
+<meta name="twitter:description" content="主要介绍ReactNative组件的生命周期，一般说到组件的生命周期，基本上都会遵循创建、运行、销毁三个过程，RN组件的生命周期也如此。">
+<meta name="twitter:image" content="http://www.whoosh.site/images/react.png">
     
 
     
@@ -234,87 +238,219 @@
 </aside>
 
             
-            <section id="main"><div class="timeline timeline-wrap">
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar"></i></span>
-                <h1 class="title">2016</h1>
-            </div>
+            <section id="main"><article id="post-20161115_ReactNative自学03_组件的生命周期" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
+                    
+                        <header class="article-header">
+                            
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/04/25/20160425_树莓派3 声音传感器-Win10/">树莓派3 声音传感器(Win10 IoT)</a>
+        <h1 class="article-title" itemprop="name">
+            ReactNative自学03-组件的生命周期
         </h1>
     
 
-                <div class="article-meta">
-                    
+                                
+                                    <div class="article-meta">
+                                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/04/25/20160425_树莓派3 声音传感器-Win10/">
-            <time datetime="2016-04-24T16:35:58.000Z" itemprop="datePublished">2016-04-25</time>
+        <a href="/2016/11/15/20161115_ReactNative自学03_组件的生命周期/">
+            <time datetime="2016-11-15T12:30:58.000Z" itemprop="datePublished">2016-11-15</time>
         </a>
     </div>
 
 
-                    
+                                            
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/树莓派/">树莓派</a>
+        <a class="article-category-link" href="/categories/ReactNative/">ReactNative</a>
     </div>
 
-                    
+                                                
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Win10-IoT/">Win10 IoT</a>, <a class="tag-link" href="/tags/传感器/">传感器</a>, <a class="tag-link" href="/tags/树莓派3/">树莓派3</a>
+        <a class="tag-link" href="/tags/ReactNative/">ReactNative</a>
     </div>
 
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/04/10/20160410_树莓派3 使用体会/">树莓派3 使用体验</a>
-        </h1>
-    
+                                    </div>
+                                    
+                        </header>
+                        
+                            
+                                <div class="article-entry" itemprop="articleBody">
+                                    
+                                            
+                                                    <h1 id="组件的生命周期"><a href="#组件的生命周期" class="headerlink" title="组件的生命周期"></a>组件的生命周期</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>一般说到组件的生命周期，基本上都会遵循创建、运行、销毁三个过程，RN组件的生命周期也如此。下面是在网上转载的RN生命周期流程图。</p>
+<p><img src="/images/20161115/组件生命周期图.jpg" alt="RN组件生命周期图"></p>
+<h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><p>按照<code>构造函数</code>-&gt;<code>componentWillMount</code>-&gt;<code>render</code>-&gt;<code>componentDidMount</code>顺序依次执行，这个过程在组件的生命周期中只执行一次。等componentDidMount执行完毕之后，组件就进入了运行状态。 </p>
+<h3 id="void-getDefaultProps"><a href="#void-getDefaultProps" class="headerlink" title="void getDefaultProps()"></a>void getDefaultProps()</h3><ul>
+<li>调用：组件创建前调用，多个实例间共享引用。仅调用一次。</li>
+<li>目的：获取父组件传递过来的Props，如果Props和该函数中定义的Props的key一样，将会被覆盖。</li>
+</ul>
+<h3 id="void-getInitState"><a href="#void-getInitState" class="headerlink" title="void getInitState()"></a>void getInitState()</h3><ul>
+<li>调用：组件创建前调用。仅调用一次。</li>
+<li>目的：初始化组件内部的状态值，建议初始化state的时候尽可能给每一个可能用到的值都赋一个初始值，避免在使用中出现空值。</li>
+</ul>
+<h3 id="void-componentWillMount"><a href="#void-componentWillMount" class="headerlink" title="void componentWillMount()"></a>void componentWillMount()</h3><ul>
+<li>调用：组件挂载前触发。仅调用一次。</li>
+<li>目的：常用于改变state的操作。</li>
+</ul>
+<h3 id="void-render"><a href="#void-render" class="headerlink" title="void render()"></a>void render()</h3><ul>
+<li>调用：渲染组件时。至少调用一次(在运行过程中也可能会调用)。</li>
+<li>目的：渲染函数，返回一个Virtual DOM。在函数内部尽量保持纯净，只渲染组件，不修改状态，不执行副操作（如计时器、网络操作等）。</li>
+</ul>
+<h3 id="void-componetDidMount"><a href="#void-componetDidMount" class="headerlink" title="void componetDidMount()"></a>void componetDidMount()</h3><ul>
+<li>调用：组件挂载结束触发。仅调用一次。</li>
+<li>目的：在该函数中修改状态、执行网络请求、定时器开启等相关操作。</li>
+</ul>
+<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><p>运行过程实际上就是监测props和state是否发生改变，当props发生改变后，会先回调<code>componentWillReceiveProps</code>并传入新的props。然后会执行更新界面相关的一系列回调方法。 当state发生改变后，会执行更新相关的回调方法。 </p>
+<h3 id="void-componentWillReceiveProps-nextProps"><a href="#void-componentWillReceiveProps-nextProps" class="headerlink" title="void componentWillReceiveProps(nextProps)"></a>void componentWillReceiveProps(nextProps)</h3><ul>
+<li>调用：组件接收到新的props时被调用。</li>
+<li>目的：新的props将会作为参数传递进来，老的props可以根据this.props来获取。另外，可以在该函数中对state作一些处理。且在该函数中更新state不会引起二次渲染。</li>
+</ul>
+<h3 id="bool-shouldComponentUpdate-nextProps-nextState"><a href="#bool-shouldComponentUpdate-nextProps-nextState" class="headerlink" title="bool shouldComponentUpdate(nextProps, nextState)"></a>bool shouldComponentUpdate(nextProps, nextState)</h3><ul>
+<li>调用：组件接收到新的props和state时被调用。</li>
+<li>目的：该函数主要对传递过来的nextProps和nextState作判断。如果返回true则重新渲染，如果返回false则不重新渲染。</li>
+</ul>
+<h3 id="void-componentWillUpdate-prevProps-prevState"><a href="#void-componentWillUpdate-prevProps-prevState" class="headerlink" title="void componentWillUpdate(prevProps, prevState)"></a>void componentWillUpdate(prevProps, prevState)</h3><ul>
+<li>调用：props或者state改变，且shouldComponentUpdate方法返回true时</li>
+<li>目的：和初始化中的componentWillMount函数功能类似。可以在这个函数中为即将发生的重新渲染做一些准备，但不能在这个函数中通过this.setState再次改变状态机变量的值组件。</li>
+</ul>
+<h3 id="void-render-1"><a href="#void-render-1" class="headerlink" title="void render()"></a>void render()</h3><ul>
+<li>调用：组件重新渲染时调用。</li>
+<li>目的：和初始化中的render函数功能类似。重新渲染组件，返回一个新的Virtual DOM。</li>
+</ul>
+<h3 id="void-componentDidUpdate-prevProps-prevState"><a href="#void-componentDidUpdate-prevProps-prevState" class="headerlink" title="void componentDidUpdate(prevProps, prevState)"></a>void componentDidUpdate(prevProps, prevState)</h3><ul>
+<li>调用：组件重新渲染完成后调用。</li>
+<li>目的：和初始化中的componentDidMount函数功能类似。在该函数中修改状态、执行网络请求、定时器开启等相关操作</li>
+</ul>
+<h2 id="销毁"><a href="#销毁" class="headerlink" title="销毁"></a>销毁</h2><p>当组件将要被卸载时，会先调用<code>componentWillUnmount</code>函数。</p>
+<h3 id="void-componentWillUnmount"><a href="#void-componentWillUnmount" class="headerlink" title="void componentWillUnmount()"></a>void componentWillUnmount()</h3><ul>
+<li>调用：组件卸载和销毁之前调用。仅调用一次。</li>
+<li>目的：进行定时器，监听等操作的销毁工作。</li>
+</ul>
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/04/10/20160410_树莓派3 使用体会/">
-            <time datetime="2016-04-10T15:35:00.000Z" itemprop="datePublished">2016-04-10</time>
-        </a>
-    </div>
+                                                        
+                                </div>
+                                <footer class="article-footer">
+                                    <div style="float: left;"> 总阅读量<span id="busuanzi_value_page_pv"><i class="fa fa-spinner"></i></span>次 </div>
+                                    <div class="share-container">
 
 
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/树莓派/">树莓派</a>
-    </div>
 
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/树莓派3/">树莓派3</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
 </div>
+
+    <a data-url="http://www.whoosh.site/2016/11/15/20161115_ReactNative自学03_组件的生命周期/" data-id="cjfonriq6000070v9sc25z78b" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+                                    
+    
+        <a href="http://www.whoosh.site/2016/11/15/20161115_ReactNative自学03_组件的生命周期/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.whoosh.site/2016/11/15/20161115_ReactNative自学03_组件的生命周期/">评论</a>
+    
+
+                                </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/03/03/20170303_使用PhantomJS实现服务端截屏/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    使用PhantomJS实现服务端截屏
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2016/10/31/20161031_ReactNative自学02-ES6语法/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">ReactNative自学02-ES6语法</div>
+        </a>
+    
+</nav>
+
+
+            
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
 </section>
+    
+
+        
+        </section>
             
                 
 <aside id="sidebar">
@@ -497,11 +633,13 @@
     <script>
     var disqus_config = function () {
         
-        this.page.identifier = '';
+            this.page.url = 'http://www.whoosh.site/2016/11/15/20161115_ReactNative自学03_组件的生命周期/';
+        
+        this.page.identifier = '20161115_ReactNative自学03_组件的生命周期';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
-        s.src = '//' + 'www-whoosh-site' + '.disqus.com/count.js';
+        s.src = '//' + 'www-whoosh-site' + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
