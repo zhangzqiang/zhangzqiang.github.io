@@ -3,18 +3,22 @@
 <head>
     <meta charset="utf-8">
     
-    <title>标签: PDCharts | WHOOSH</title>
+    <title>ReactNative自学04-Props和State | WHOOSH</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="张正强、技术分享">
-<meta property="og:type" content="website">
-<meta property="og:title" content="WHOOSH">
-<meta property="og:url" content="http://www.whoosh.site/tags/PDCharts/index.html">
+    <meta name="description" content="主要介绍。">
+<meta name="keywords" content="ReactNative">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ReactNative自学04-Props和State">
+<meta property="og:url" content="http://www.whoosh.site/2016/11/15/20161127_ReactNative自学04_Props和State/index.html">
 <meta property="og:site_name" content="WHOOSH">
-<meta property="og:description" content="张正强、技术分享">
+<meta property="og:description" content="主要介绍。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.whoosh.site/images/react.png">
+<meta property="og:updated_time" content="2018-04-07T14:28:32.558Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WHOOSH">
-<meta name="twitter:description" content="张正强、技术分享">
+<meta name="twitter:title" content="ReactNative自学04-Props和State">
+<meta name="twitter:description" content="主要介绍。">
+<meta name="twitter:image" content="http://www.whoosh.site/images/react.png">
     
 
     
@@ -234,51 +238,233 @@
 </aside>
 
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-tag"></i></span>
-        <h1 class="title">#PDCharts</h1>
-    </div>
+            <section id="main"><article id="post-20161127_ReactNative自学04_Props和State" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+                    
+                        <header class="article-header">
+                            
     
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/03/18/20180318_PDCharts局部放电图谱库/">PDCharts局部放电图谱库</a>
+        <h1 class="article-title" itemprop="name">
+            ReactNative自学04-Props和State
         </h1>
     
 
-                <div class="article-meta">
-                    
+                                
+                                    <div class="article-meta">
+                                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/03/18/20180318_PDCharts局部放电图谱库/">
-            <time datetime="2018-03-18T13:13:58.000Z" itemprop="datePublished">2018-03-18</time>
+        <a href="/2016/11/15/20161127_ReactNative自学04_Props和State/">
+            <time datetime="2016-11-15T12:30:58.000Z" itemprop="datePublished">2016-11-15</time>
         </a>
     </div>
 
 
-                    
+                                            
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/业务相关/">业务相关</a>
+        <a class="article-category-link" href="/categories/ReactNative/">ReactNative</a>
     </div>
 
-                    
+                                                
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/ECharts/">ECharts</a>, <a class="tag-link" href="/tags/PDCharts/">PDCharts</a>
+        <a class="tag-link" href="/tags/ReactNative/">ReactNative</a>
     </div>
 
-                </div>
-            </div>
-        </div>
-    
+                                    </div>
+                                    
+                        </header>
+                        
+                            
+                                <div class="article-entry" itemprop="articleBody">
+                                    
+                                            
+                                                    <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>我们使用两种数据来控制一个组件：props和state。</p>
+<ul>
+<li>无状态组件 — 只有 props, 没有 state。 除去render() 函数和所有围绕props的逻辑之外，没有什么要关心的地方。这使他们易于理解且易于测试</li>
+<li>有状态组件 — 既有 props 又有 state。也被称作状态管理者 。他们负责客户端-服务器通信(通过XHR, web sockets, 等)，数据处理和给用户行为反馈。 </li>
+</ul>
+<h2 id="Props"><a href="#Props" class="headerlink" title="Props"></a>Props</h2><p>props是一个组件的配置选项。是由上到下指定且不可改变的。一个组件不能改变自身的props, 但要负责设置子组件的 props。例如，在Greeting组件中将name作为一个属性来定制，这样可以复用这一组件来制作各种不同的“问候语”。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Text, View &#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Greeting</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;Text&gt;Hello &#123;<span class="keyword">this</span>.props.name&#125;!&lt;/Text&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">LotsOfGreetings</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;View style=&#123;&#123;<span class="attr">alignItems</span>: <span class="string">'center'</span>&#125;&#125;&gt;</span><br><span class="line">        &lt;Greeting name=<span class="string">'React Native'</span> /&gt;</span><br><span class="line">      &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="State"><a href="#State" class="headerlink" title="State"></a>State</h2><p>对于需要改变的数据，我们需要使用state（状态）。在ES6中，我们在constructor中初始化state。在ES5中，使用的是getInitialState方法来初始化state（这一做法会逐渐被淘汰）。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123; <span class="attr">showText</span>: <span class="literal">true</span> &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 每1000毫秒对showText状态做一次取反操作</span></span><br><span class="line">    setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">this</span>.setState(<span class="function"><span class="params">previousState</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> &#123; <span class="attr">showText</span>: !previousState.showText &#125;;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Props和State对比"><a href="#Props和State对比" class="headerlink" title="Props和State对比"></a>Props和State对比</h1><table>
+<thead>
+<tr>
+<th>操作</th>
+<th style="text-align:center">Props</th>
+<th style="text-align:center">State</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>能否在组件内部设置默认值</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td>能否在组件内部修改</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td>能否从父组件获取初始值</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td>能否由父组件修改</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td>能否设置子组件初始值</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td>能否修改子组件的值</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">No</td>
+</tr>
+</tbody>
+</table>
+<h2 id="相同点"><a href="#相同点" class="headerlink" title="相同点"></a>相同点</h2><ol>
+<li>props和state改变，都会引发render的重新渲染。</li>
+<li>都能由自身组件的相应初始化函数设定初始值。</li>
+</ol>
+<h2 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h2><ol>
+<li>初始值来源：props来自于父组件或者自身getDefaultProps，state的初始值来自于自身的getInitalState（constructor）函数。</li>
+<li>修改方式：props只能由父组件修改，不能在自身组件修改，state只能在自身组件中setState修改，不能由父组件修改。</li>
+<li>对子组件：props是一个父组件传递给子组件的数据流，这个数据流可以一直传递到子孙组件，state代表的是一个组件内部自身的状态，只能在自身组件中存在。</li>
+</ol>
+<h1 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h1><ul>
+<li>尝试把尽可能多的组件无状态化。</li>
+<li>state应该包括那些可能被组件的事件处理器改变并触发用户界面更新的数据。</li>
+<li>尽可能使用 props 来作为组件外部数据来源。</li>
+</ul>
+
+                                                        
+                                </div>
+                                <footer class="article-footer">
+                                    <div style="float: left;"> 总阅读量<span id="busuanzi_value_page_pv"><i class="fa fa-spinner"></i></span>次 </div>
+                                    <div class="share-container">
+
+
+
 </div>
+
+    <a data-url="http://www.whoosh.site/2016/11/15/20161127_ReactNative自学04_Props和State/" data-id="cjfpfst810000c4v9d3tenho6" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+                                    
+    
+        <a href="http://www.whoosh.site/2016/11/15/20161127_ReactNative自学04_Props和State/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.whoosh.site/2016/11/15/20161127_ReactNative自学04_Props和State/">评论</a>
+    
+
+                                </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/03/03/20170303_使用PhantomJS实现服务端截屏/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    使用PhantomJS实现服务端截屏
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2016/11/15/20161115_ReactNative自学03_组件的生命周期/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">ReactNative自学03-组件的生命周期</div>
+        </a>
+    
+</nav>
+
+
+            
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
 </section>
+    
+
+        
+        </section>
             
                 
 <aside id="sidebar">
@@ -461,11 +647,13 @@
     <script>
     var disqus_config = function () {
         
-        this.page.identifier = '';
+            this.page.url = 'http://www.whoosh.site/2016/11/15/20161127_ReactNative自学04_Props和State/';
+        
+        this.page.identifier = '20161127_ReactNative自学04_Props和State';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
-        s.src = '//' + 'www-whoosh-site' + '.disqus.com/count.js';
+        s.src = '//' + 'www-whoosh-site' + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
