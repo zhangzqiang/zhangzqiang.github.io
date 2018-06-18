@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+<head>
+    <meta charset="utf-8">
+    
+    <title>项目范围管理 | WHOOSH</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="摘录了PMBOK项目管理知识体系指南第5章项目范围管理相关知识点。包括以下6个管理过程：规划范围管理、收集需求、定义范围、创建WBS、确认范围和控制范围。">
+<meta name="keywords" content="管理类书籍,PMP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="项目范围管理">
+<meta property="og:url" content="http://www.whoosh.site/2018/04/20/20180420_项目范围管理/index.html">
+<meta property="og:site_name" content="WHOOSH">
+<meta property="og:description" content="摘录了PMBOK项目管理知识体系指南第5章项目范围管理相关知识点。包括以下6个管理过程：规划范围管理、收集需求、定义范围、创建WBS、确认范围和控制范围。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.whoosh.site/images/book.jpg">
+<meta property="og:updated_time" content="2018-06-18T10:46:49.672Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="项目范围管理">
+<meta name="twitter:description" content="摘录了PMBOK项目管理知识体系指南第5章项目范围管理相关知识点。包括以下6个管理过程：规划范围管理、收集需求、定义范围、创建WBS、确认范围和控制范围。">
+<meta name="twitter:image" content="http://www.whoosh.site/images/book.jpg">
+    
+
+    
+        <link rel="alternate" href="http://blog.csdn.net/zhang_z_qiang" title="WHOOSH" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/favicon.ico" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">WHOOSH</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">
+                        主页
+                    </a>
+                    
+                    <a class="main-nav-link" href="/archives">
+                        归档
+                    </a>
+                    
+                    <a class="main-nav-link" href="/categories">
+                        分类
+                    </a>
+                    
+                    <a class="main-nav-link" href="/tags">
+                        标签
+                    </a>
+                    
+                    <a class="main-nav-link" href="/about">
+                        关于
+                    </a>
+                    
+            </nav>
+            
+                
+                    <nav id="sub-nav">
+                        <div class="profile" id="profile-nav">
+                            <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.jpg" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                        </div>
+                    </nav>
+                    
+                        <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td>
+                        <a class="main-nav-link" href="/.">
+                            主页
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a class="main-nav-link" href="/archives">
+                            归档
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a class="main-nav-link" href="/categories">
+                            分类
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a class="main-nav-link" href="/tags">
+                            标签
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a class="main-nav-link" href="/about">
+                            关于
+                        </a>
+                    </td>
+                    
+                        <td>
+                            
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                        </td>
+            </tr>
+        </table>
+    </div>
+</header>
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.jpg" />
+            <h2 id="name">zhang_z_qiang</h2>
+            <h3 id="title">Web &amp; .NET Developer</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Shanghai, China</span>
+            <a id="follow" target="_blank" href="https://github.com/zhangzqiang/">关注我</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                18
+                <span>文章</span>
+            </div>
+            <div class="article-info-block">
+                14
+                <span>标签</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/zhangzqiang/" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="wechat" class=tooltip>
+                            <i class="fa fa-wechat"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://weibo.com/u/1816122347" target="_blank" title="weibo" class=tooltip>
+                            <i class="fa fa-weibo"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="http://blog.csdn.net/zhang_z_qiang" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-20180420_项目范围管理" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+                    
+                        <header class="article-header">
+                            
+    
+        <h1 class="article-title" itemprop="name">
+            项目范围管理
+        </h1>
+    
+
+                                
+                                    <div class="article-meta">
+                                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/04/20/20180420_项目范围管理/">
+            <time datetime="2018-04-20T03:15:58.000Z" itemprop="datePublished">2018-04-20</time>
+        </a>
+    </div>
+
+
+                                            
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
+    </div>
+
+                                                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/PMP/">PMP</a>, <a class="tag-link" href="/tags/管理类书籍/">管理类书籍</a>
+    </div>
+
+                                    </div>
+                                    
+                        </header>
+                        
+                            
+                                <div class="article-entry" itemprop="articleBody">
+                                    
+                                            
+                                                    <h1 id="范围管理"><a href="#范围管理" class="headerlink" title="范围管理"></a>范围管理</h1><ul>
+<li>项目范围管理确保项目<code>做且只做</code>所需的全部工作。</li>
+<li>范围包括<code>产品范围</code>（某些产品、服务或成果所具有的特征和功能）和<code>项目范围</code>（为交付具有规定特性与功能的产品、服务或成果而必须完成的工作）。</li>
+<li>在<code>适应型或敏捷型</code>生命周期中，每次迭代都会重复开展<code>确认范围</code>和<code>控制范围</code>两个过程。</li>
+<li>在<code>预测型</code>生命周期中，经过批准的项目范围说明书、WBS和WBS词典构成<code>范围基准</code>，只有<code>通过正式变更控制程序，才能进行修改</code>。</li>
+<li><code>项目范围</code>的完成情况根据<code>项目管理计划</code>来衡量，<code>产品范围</code>的完成情况根据<code>产品需求</code>来衡量<h2 id="规划范围管理"><a href="#规划范围管理" class="headerlink" title="规划范围管理"></a>规划范围管理</h2></li>
+<li>定义<ul>
+<li>为了记录如何定义、确认和控制项目范围及产品范围，而创建范围管理计划的过程</li>
+</ul>
+</li>
+<li>作用<ul>
+<li>在整个项目期间对<code>如何管理范围提供指南和方向</code></li>
+</ul>
+</li>
+<li>时间点<ul>
+<li>仅开展一次或仅在预定义节点开展<h3 id="ITTO"><a href="#ITTO" class="headerlink" title="ITTO"></a>ITTO</h3></li>
+</ul>
+</li>
+<li>输入（I）<ul>
+<li>项目章程</li>
+<li>项目管理计划<ul>
+<li>质量管理计划<ul>
+<li>在项目中实施组织的质量政策、方法和标准的方式会影响管理项目和产品范围的方式</li>
+</ul>
+</li>
+<li>项目生命周期描述<ul>
+<li>定义了项目从开始到完成所经历的一系列阶段</li>
+</ul>
+</li>
+<li>开发方法<ul>
+<li>定义了项目采用瀑布式、迭代型、适应型、敏捷型还是混合型开发方式</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>事业环境因素和组织过程资产</li>
+</ul>
+</li>
+<li>工具与技术（TT）<ul>
+<li>专家判断</li>
+<li>数据分析<ul>
+<li>备选方案分析<ul>
+<li>用于评估收集需求、描述项目和产品范围、创造产品、确认范围和控制范围的各种方法</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>会议</li>
+</ul>
+</li>
+<li>输出（O）<ul>
+<li>范围管理计划<ul>
+<li>描述将如何定义、制定、监督、控制和确认项目范围</li>
+</ul>
+</li>
+<li>需求管理计划<ul>
+<li>描述将如何分析、记录和管理项目和产品需求<h2 id="收集需求"><a href="#收集需求" class="headerlink" title="收集需求"></a>收集需求</h2></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>定义<ul>
+<li>为实现目标而确定、记录并管理相关方的需要和需求的过程</li>
+</ul>
+</li>
+<li>作用<ul>
+<li><code>为定义产品范围和项目范围奠定基础</code></li>
+</ul>
+</li>
+<li>时间点<ul>
+<li>仅开展一次或仅在预定义点开展</li>
+</ul>
+</li>
+<li>备注<ul>
+<li>需求：根据特定协议或其他强制性规范，产品、服务或成果必须具备的条件或能力。包括发起人、客户和其他相关方的<code>已量化</code>且<code>书面记录</code>的<code>需要和期望</code><h3 id="ITTO-1"><a href="#ITTO-1" class="headerlink" title="ITTO"></a>ITTO</h3></li>
+</ul>
+</li>
+<li>输入（I）<ul>
+<li>项目章程</li>
+<li>项目管理计划<ul>
+<li>范围管理计划，需求管理计划，相关方参与计划</li>
+</ul>
+</li>
+<li>项目文件<ul>
+<li>假设日志，经验教训登记册，相关方登记册</li>
+</ul>
+</li>
+<li>商业文件<ul>
+<li>商业论证：描述了为满足业务需要应达到的必要、期望及可选标准</li>
+</ul>
+</li>
+<li>协议</li>
+<li>事业环境因素和组织过程资产</li>
+</ul>
+</li>
+<li>工具与技术（TT）<ul>
+<li>专家判断</li>
+<li>数据收集<ul>
+<li>头脑风暴</li>
+<li>访谈</li>
+<li>焦点小组<ul>
+<li>召集<code>同职能</code>的相关方和主题专家讨论项目风险、成功标准和其他议题，比访谈有利于交流</li>
+</ul>
+</li>
+<li>问卷调查<ul>
+<li>适用于<code>受众多样化</code>，需要<code>快速完成调查</code>，受访者<code>地理位置分散</code>，并且适合开展<code>统计分析</code></li>
+</ul>
+</li>
+<li>标杆对照<ul>
+<li>将实际或计划的产品，过程和实践，<code>与其他可比组织的实践进行比较</code>，以便识别<code>最佳实践</code>，形成改进意见，并<code>为绩效考核提供依据</code></li>
+<li>可比组织可是内部的，也可以是外部的</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>数据分析<ul>
+<li>文件分析：包括审核和评审任何相关的文件信息</li>
+</ul>
+</li>
+<li>决策<ul>
+<li>投票：原则包括一致同意（德尔菲法）、大多数同意（&gt;50%）、相对多数同意</li>
+<li>独裁型决策制订</li>
+<li>多标准决策分析</li>
+</ul>
+</li>
+<li>数据表现<ul>
+<li>亲和图<ul>
+<li>用来对大量创意进行<code>分组</code>的技术，以便进一步审查和分析</li>
+</ul>
+</li>
+<li>思维导图<ul>
+<li>把从<code>头脑风暴</code>中获得的创意<code>整合</code>成一张图，反映创意之间的<code>共性和差异</code>，激发新创意</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>人际关系与团队技能<ul>
+<li>名义小组技术<ul>
+<li>向集体提出一个问题或难题</li>
+<li>主持人在活动挂图上记录所有人的想法</li>
+<li>集体讨论各个想法，直到全体成员达成一个明确的共识</li>
+<li>进行<code>多轮投票</code>，个人私下投票决出各种想法的<code>优先排序</code></li>
+</ul>
+</li>
+<li>观察/交谈<ul>
+<li><code>工作跟随</code>，直接观察个人在各自的环境中如何执行工作和实施流程，来体验该流程或程序实施过程，以便挖掘<code>隐藏需求</code></li>
+</ul>
+</li>
+<li>引导<ul>
+<li>联合应用设计或开发（JAD）<ul>
+<li><code>软件开发行业</code>，把业务主题专家和开发团队集中在一起，以收集需求和改进软件开发过程</li>
+</ul>
+</li>
+<li>质量功能展开（QFD）<ul>
+<li><code>制造行业</code>，用于确定新产品的关键特征</li>
+</ul>
+</li>
+<li>用户故事<ul>
+<li><code>需求研讨会</code>，对所需的功能的简短文字描述</li>
+</ul>
+</li>
+<li>引导式研讨会用于快速定义<code>跨职能</code>需求并协调相关方的需求差异</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>系统交互图<ul>
+<li>对产品范围的可视化描述，显示业务系统及其与人和其他系统之间的交互方式</li>
+</ul>
+</li>
+<li>原型法<ul>
+<li>使得相关方可以体验最终产品的模型，而不是仅限于讨论抽象的需求描述</li>
+<li>原型法有<code>助于减轻返工</code>的风险，其流程：<code>1.创建模型、2.用户体验、3.反馈收集、4.修改原型</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>输出（O）<ul>
+<li>需求文件<ul>
+<li>描述各种<code>单一需求</code>将如何<code>满足项目相关的业务需求</code>，一开始可能只有高层级的需求，然后随着有关需求信息的增加而逐步细化</li>
+<li>需求类别：业务需求、相关方需求、解决方案需求（功能需求/非功能需求）、过渡和就绪需求（当前状态到将来状态）、项目需求、质量需求</li>
+</ul>
+</li>
+<li>需求跟踪矩阵<ul>
+<li>把产品需求从其来源连接到能满足需求的可交付成果的一种<code>表格</code></li>
+<li>提供了在整个项目生命周期中<code>跟踪需求</code>的一种方法，有助于<code>确保需求文件中被批准的每项需求在项目结束的时候都能交付</code></li>
+<li>需求跟踪矩阵还<code>为管理产品范围变更提供了框架</code>。<h2 id="定义范围"><a href="#定义范围" class="headerlink" title="定义范围"></a>定义范围</h2></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>定义<ul>
+<li>制定项目和产品详细的过程</li>
+</ul>
+</li>
+<li>作用<ul>
+<li>描述产品、服务或成果的<code>边界和验收标准</code></li>
+</ul>
+</li>
+<li>时间点<ul>
+<li>经开展一次或在预定义点开展</li>
+</ul>
+</li>
+<li>备注<ul>
+<li>定义范围从<code>需求文件</code>中选取最终的项目需求，然后制定出关于项目及其产品、服务或成果的详细描述<h3 id="ITTO-2"><a href="#ITTO-2" class="headerlink" title="ITTO"></a>ITTO</h3></li>
+</ul>
+</li>
+<li>输入（I）<ul>
+<li>项目章程<ul>
+<li>包含对项目的高层级描述、产品特征和审批要求</li>
+</ul>
+</li>
+<li>项目管理计划<ul>
+<li>范围管理计划：记录了如何定义、确认和控制范围</li>
+</ul>
+</li>
+<li>项目文件<ul>
+<li>假设日志</li>
+<li>需求文件：识别了应纳入范围的需求</li>
+<li>风险登记册</li>
+</ul>
+</li>
+<li>事业环境因素和组织过程资产</li>
+</ul>
+</li>
+<li>工具与技术（TT）<ul>
+<li>专家判断</li>
+<li>数据分析<ul>
+<li>备选方案分析</li>
+</ul>
+</li>
+<li>决策<ul>
+<li>多标准决策分析</li>
+</ul>
+</li>
+<li>人际关系与团队技能<ul>
+<li>引导</li>
+</ul>
+</li>
+<li>产品分析<ul>
+<li><code>用于定义产品和服务</code>，把高层级的产品或服务描述转变为有意义的可交付成果</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>输出（O）<ul>
+<li>项目范围说明书<ul>
+<li>对项目范围、主要可交付成果、假设条件和制约因素的描述</li>
+<li>包括：<code>产品范围描述</code>（渐进明细），<code>可交付成果</code>，<code>验收标准</code>，<code>项目的除外责任</code>(有助于管理相关方的期望及减少范围蔓延)</li>
+<li><code>项目章程</code>包含<code>高层级</code>的信息，<code>范围说明书</code>则是对范围组成部分的<code>详细描述</code></li>
+</ul>
+</li>
+<li>项目文件更新<ul>
+<li>包括：假设日志，需求文件，需求跟踪矩阵，相关方登记册<h2 id="创建WBS"><a href="#创建WBS" class="headerlink" title="创建WBS"></a>创建WBS</h2></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>定义<ul>
+<li>把项目可交付成果和项目工作分解成较小、更易于管理的组件的过程</li>
+</ul>
+</li>
+<li>作用<ul>
+<li>为所有交付的内容提供架构</li>
+</ul>
+</li>
+<li>时间点<ul>
+<li>仅开展一次或仅在项目的预定义节点开展</li>
+</ul>
+</li>
+<li>备注<ul>
+<li><code>WBS组织并定义了项目的总范围</code>，代表着经批准的当前项目范围说明书所规定的工作</li>
+<li><code>WBS最底层的组成部分是工作包</code>，“工作”是指为活动结果的工作产品或可交付成果，而不是活动本身</li>
+<li>规划包：<code>低于控制账户而高于工作包</code>的工作分解结构组件，工作内容已知，但详细的进度活动未知<h3 id="ITTO-3"><a href="#ITTO-3" class="headerlink" title="ITTO"></a>ITTO</h3></li>
+</ul>
+</li>
+<li>输入（I）<ul>
+<li>项目管理计划<ul>
+<li>范围管理计划</li>
+</ul>
+</li>
+<li>项目文件<ul>
+<li>项目范围说明书<ul>
+<li>需要实施的工作及不包含在项目中的工作</li>
+</ul>
+</li>
+<li>需求文件</li>
+</ul>
+</li>
+<li>事业环境因素和组织过程资产</li>
+</ul>
+</li>
+<li>工具与技术（TT）<ul>
+<li>专家判断</li>
+<li><code>分解</code>：把项目范围和项目可交付成果逐步划分为更小、更便于管理的组成部分的技术<ul>
+<li>流程：<ol>
+<li><code>识别</code>和分析可交付成果及相关工作</li>
+<li>确定WBS的<code>结构</code>和编排方法</li>
+<li>自上而下逐层细化<code>分解</code></li>
+<li>为WBS组成部分制定和分配标识<code>编码</code></li>
+<li><code>核实</code>可交付成果分解的程度是否恰当</li>
+</ol>
+</li>
+<li>不同可交付成果可以分解到不同的层次，可以把<code>主要可交付成果</code>作为分解的第二层,也可以<code>以项目生命周期的各个阶段作</code>为分解的第二层，把产品和项目可交付成果放在第三层</li>
+<li>过细的分解或造成管理低效及数据汇总困难，一般按照<code>4~6层</code>，<code>80小时</code>，<code>100%原则</code>和<code>单一责任人或组织</code>原则分解工作包</li>
+<li>作为外包工作的一部分，<code>卖方需制定相应的合同WBS</code></li>
+<li>如果采用敏捷方法，可以将长篇故事分解成用户故事（收集需求中提到）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>输出（O）<ul>
+<li><code>范围基准</code><ul>
+<li>经过批准的<code>范围说明书</code>、<code>WBS</code>（控制账户-规划包-工作包）和相应的<code>WBS词典</code>(某个WBS组件的详细范围描述)，只有通过正式的变更控制过程才能进行变更</li>
+<li>在<code>控制账户</code>节点，把范围、预算和进度加以整合，并<code>与挣值相比较</code>，以<code>测量绩效</code></li>
+</ul>
+</li>
+<li>项目文件更新<ul>
+<li>假设日志, 需求文件<h2 id="确认范围"><a href="#确认范围" class="headerlink" title="确认范围"></a>确认范围</h2></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>定义<ul>
+<li>正式验收<code>已完成的项目可交付成果</code>的过程</li>
+</ul>
+</li>
+<li>作用<ul>
+<li>使验收过程具有客观性，同时通过<code>每个可交付成果的验收</code>，来提高最终产品、服务或成果获得验收的可能性</li>
+</ul>
+</li>
+<li>时间点<ul>
+<li>整个项目期间开展</li>
+</ul>
+</li>
+<li>备注<ul>
+<li>确认范围过程与控制质量过程不同之处在于，前者<code>关注可交付成果的验收</code>，后者<code>关注可交付成果的正确性及是否满足质量要求</code><h3 id="ITTO-4"><a href="#ITTO-4" class="headerlink" title="ITTO"></a>ITTO</h3></li>
+</ul>
+</li>
+<li>输入（I）<ul>
+<li>项目管理计划<ul>
+<li>范围管理计划, 需求管理计划,范围基准</li>
+</ul>
+</li>
+<li>项目文件<ul>
+<li>经验教训登记册,质量报告,需求文件,需求跟踪矩阵</li>
+</ul>
+</li>
+<li>核实的可交付成果<ul>
+<li>已经完成、并被<code>控制质量</code>过程检查为正确的可交付成果</li>
+</ul>
+</li>
+<li>工作绩效数据</li>
+</ul>
+</li>
+<li>工具与技术（TT）<ul>
+<li><code>检查</code><ul>
+<li>开展测量、审查与确认等活动，来判断工作和可交付成果是否符合需求和产品验收标准</li>
+</ul>
+</li>
+<li>决策<ul>
+<li>投票</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>输出（O）<ul>
+<li>验收的可交付成果<ul>
+<li>由<code>客户或发起人正式签字批准</code>的符合验收标准的可交付成果，最后交给结束项目或阶段过程</li>
+</ul>
+</li>
+<li>工作绩效信息<ul>
+<li>项目进展信息，即可交付成果的验收情况</li>
+</ul>
+</li>
+<li>变更请求<ul>
+<li>对<code>已经完成</code>但<code>未通过正式验收</code>的可交付成果及其未通过验收的原因，应该<code>记录在案</code>，之后<code>提交变更请求</code></li>
+</ul>
+</li>
+<li>项目文件更新<ul>
+<li>经验教训登记册</li>
+<li>需求文件</li>
+<li>需求跟踪矩阵</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="控制范围"><a href="#控制范围" class="headerlink" title="控制范围"></a>控制范围</h2><ul>
+<li>定义<ul>
+<li>监督项目和产品的范围状态，管理范围基准变更的过程</li>
+</ul>
+</li>
+<li>作用<ul>
+<li>在整个项目期间保持<code>对范围基准的维护</code></li>
+</ul>
+</li>
+<li>时间点<ul>
+<li>整个项目期间开展</li>
+</ul>
+</li>
+<li>备注<ul>
+<li>范围蔓延：未经控制的产品或项目范围的扩大，包括<code>内部的镀金</code>和<code>外部的范围潜变</code></li>
+<li>一旦出现范围蔓延，就必须要走变更控制流程<h3 id="ITTO-5"><a href="#ITTO-5" class="headerlink" title="ITTO"></a>ITTO</h3></li>
+</ul>
+</li>
+<li>输入（I）<ul>
+<li>项目管理计划<ul>
+<li>范围管理计划，需求管理计划， 变更管理计划，范围基准</li>
+<li>配置管理计划<ul>
+<li>定义了哪些配置项需要正式变更控制，以及变更控制过程</li>
+</ul>
+</li>
+<li>绩效测量基准<ul>
+<li>经过<code>整合的项目范围、进度和成本基准</code></li>
+<li>使用挣值分析比较绩效测量基准与实际结果差异，判断是否有必要进行变更、采取纠正措施或预防措施</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>项目文件<ul>
+<li>经验教训登记册， 需求文件，需求跟踪矩阵</li>
+</ul>
+</li>
+<li>工作绩效数据<ul>
+<li>变更请求的收到、接受的数量，核实、确认和完成的可交付成果的数量</li>
+</ul>
+</li>
+<li>组织过程资产</li>
+</ul>
+</li>
+<li>工具与技术（TT）<ul>
+<li>数据分析<ul>
+<li>偏差分析<ul>
+<li>用于<code>将基准与实际结果进行比较</code>，确定偏差<code>是否需要采取纠正或预防措施</code></li>
+</ul>
+</li>
+<li>趋势分析<ul>
+<li>审查<code>项目绩效随时间的变化情况</code>，判断<code>绩效是改善还是恶化</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>输出（O）<ul>
+<li>工作绩效信息</li>
+<li>变更请求</li>
+<li>项目管理计划更新<ul>
+<li>范围管理计划, 范围基准, 进度基准,成本基准,绩效测量基准</li>
+</ul>
+</li>
+<li>项目文件更新<ul>
+<li>经验教训登记册, 需求文件,需求跟踪矩阵</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                                                        
+                                </div>
+                                <footer class="article-footer">
+                                    <div style="float: left;"> 总阅读量<span id="busuanzi_value_page_pv"><i class="fa fa-spinner"></i></span>次 </div>
+                                    <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://www.whoosh.site/2018/04/20/20180420_项目范围管理/" data-id="cjikfmivs0019bwv9rr8yttyl" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+                                    
+    
+        <a href="http://www.whoosh.site/2018/04/20/20180420_项目范围管理/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.whoosh.site/2018/04/20/20180420_项目范围管理/">评论</a>
+    
+
+                                </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2018/04/28/20180428_项目进度管理/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    项目进度管理
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2018/04/14/20180414_项目整合管理/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">项目整合管理</div>
+        </a>
+    
+</nav>
+
+
+            
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+</section>
+    
+
+        
+        </section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/06/20180506_项目成本管理/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/book.jpg)" alt="项目成本管理" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/读书笔记/">读书笔记</a></p>
+                            <p class="item-title"><a href="/2018/05/06/20180506_项目成本管理/" class="title">项目成本管理</a></p>
+                            <p class="item-date"><time datetime="2018-05-06T14:53:58.000Z" itemprop="datePublished">2018-05-06</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/04/28/20180428_项目进度管理/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/book.jpg)" alt="项目进度管理" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/读书笔记/">读书笔记</a></p>
+                            <p class="item-title"><a href="/2018/04/28/20180428_项目进度管理/" class="title">项目进度管理</a></p>
+                            <p class="item-date"><time datetime="2018-04-28T15:06:28.000Z" itemprop="datePublished">2018-04-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/04/20/20180420_项目范围管理/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/book.jpg)" alt="项目范围管理" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/读书笔记/">读书笔记</a></p>
+                            <p class="item-title"><a href="/2018/04/20/20180420_项目范围管理/" class="title">项目范围管理</a></p>
+                            <p class="item-date"><time datetime="2018-04-20T03:15:58.000Z" itemprop="datePublished">2018-04-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/04/14/20180414_项目整合管理/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/book.jpg)" alt="项目整合管理" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/读书笔记/">读书笔记</a></p>
+                            <p class="item-title"><a href="/2018/04/14/20180414_项目整合管理/" class="title">项目整合管理</a></p>
+                            <p class="item-date"><time datetime="2018-04-14T13:53:50.000Z" itemprop="datePublished">2018-04-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/04/06/20180406_项目管理概念/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/book.jpg)" alt="项目管理概念" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/读书笔记/">读书笔记</a></p>
+                            <p class="item-title"><a href="/2018/04/06/20180406_项目管理概念/" class="title">项目管理概念</a></p>
+                            <p class="item-date"><time datetime="2018-04-06T13:13:58.000Z" itemprop="datePublished">2018-04-06</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Development-Language/">Development Language</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactNative/">ReactNative</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/业务相关/">业务相关</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端技术/">前端技术</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/树莓派/">树莓派</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/浏览器/">浏览器</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/游记/">游记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">6</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canvas/">Canvas</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECharts/">ECharts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PDCharts/">PDCharts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PMP/">PMP</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PhantomJS/">PhantomJS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReactNative/">ReactNative</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Svg/">Svg</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Win10-IoT/">Win10 IoT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/传感器/">传感器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/旅行/">旅行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树莓派3/">树莓派3</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/管理类书籍/">管理类书籍</a><span class="tag-list-count">6</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Canvas/" style="font-size: 10px;">Canvas</a> <a href="/tags/ECharts/" style="font-size: 10px;">ECharts</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/PDCharts/" style="font-size: 10px;">PDCharts</a> <a href="/tags/PMP/" style="font-size: 17.5px;">PMP</a> <a href="/tags/PhantomJS/" style="font-size: 10px;">PhantomJS</a> <a href="/tags/ReactNative/" style="font-size: 15px;">ReactNative</a> <a href="/tags/Svg/" style="font-size: 10px;">Svg</a> <a href="/tags/Win10-IoT/" style="font-size: 10px;">Win10 IoT</a> <a href="/tags/传感器/" style="font-size: 10px;">传感器</a> <a href="/tags/旅行/" style="font-size: 10px;">旅行</a> <a href="/tags/树莓派3/" style="font-size: 12.5px;">树莓派3</a> <a href="/tags/管理类书籍/" style="font-size: 20px;">管理类书籍</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+            
+        </div>
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2018 Zhengqaing Zhang<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a><br>
+            总访问量<span id="busuanzi_value_site_pv"><i class="fa fa-spinner"></i></span>次 | 总访客数<span id="busuanzi_value_site_uv"><i class="fa fa-spinner"></i></span>人
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'http://www.whoosh.site/2018/04/20/20180420_项目范围管理/';
+        
+        this.page.identifier = '20180420_项目范围管理';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'www-whoosh-site' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

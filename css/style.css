@@ -950,7 +950,7 @@ a.article-title:hover {
   padding-bottom: 0.5em;
 }
 .article-entry th:first-of-type {
-  width: 100px;
+  min-width: 100px;
 }
 .article-entry td {
   border-bottom: 1px solid #eceff2;
