@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+<head>
+    <meta charset="utf-8">
+    
+    <title>前端UI设计语言评估与分析 | WHOOSH</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="本文探讨了一些目前比较流行的前端UI设计语言，如:Google的Material Design、蚂蚁金服的Ant Design、以及Twitter的Bootstrap，并对它们在进行简单的评估与分析。">
+<meta name="keywords" content="React,Web">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端UI设计语言评估与分析">
+<meta property="og:url" content="http://www.whoosh.site/2018/07/01/20180701_前端UI设计语言评估与分析/index.html">
+<meta property="og:site_name" content="WHOOSH">
+<meta property="og:description" content="本文探讨了一些目前比较流行的前端UI设计语言，如:Google的Material Design、蚂蚁金服的Ant Design、以及Twitter的Bootstrap，并对它们在进行简单的评估与分析。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.whoosh.site/images/react.png">
+<meta property="og:updated_time" content="2018-07-02T15:24:18.673Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端UI设计语言评估与分析">
+<meta name="twitter:description" content="本文探讨了一些目前比较流行的前端UI设计语言，如:Google的Material Design、蚂蚁金服的Ant Design、以及Twitter的Bootstrap，并对它们在进行简单的评估与分析。">
+<meta name="twitter:image" content="http://www.whoosh.site/images/react.png">
+    
+
+    
+        <link rel="alternate" href="http://blog.csdn.net/zhang_z_qiang" title="WHOOSH" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/favicon.ico" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">WHOOSH</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">
+                        主页
+                    </a>
+                    
+                    <a class="main-nav-link" href="/archives">
+                        归档
+                    </a>
+                    
+                    <a class="main-nav-link" href="/categories">
+                        分类
+                    </a>
+                    
+                    <a class="main-nav-link" href="/tags">
+                        标签
+                    </a>
+                    
+                    <a class="main-nav-link" href="/about">
+                        关于
+                    </a>
+                    
+            </nav>
+            
+                
+                    <nav id="sub-nav">
+                        <div class="profile" id="profile-nav">
+                            <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.jpg" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                        </div>
+                    </nav>
+                    
+                        <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td>
+                        <a class="main-nav-link" href="/.">
+                            主页
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a class="main-nav-link" href="/archives">
+                            归档
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a class="main-nav-link" href="/categories">
+                            分类
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a class="main-nav-link" href="/tags">
+                            标签
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a class="main-nav-link" href="/about">
+                            关于
+                        </a>
+                    </td>
+                    
+                        <td>
+                            
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                        </td>
+            </tr>
+        </table>
+    </div>
+</header>
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.jpg" />
+            <h2 id="name">zhang_z_qiang</h2>
+            <h3 id="title">Web &amp; .NET Developer</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Shanghai, China</span>
+            <a id="follow" target="_blank" href="https://github.com/zhangzqiang/">关注我</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                26
+                <span>文章</span>
+            </div>
+            <div class="article-info-block">
+                17
+                <span>标签</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/zhangzqiang/" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="wechat" class=tooltip>
+                            <i class="fa fa-wechat"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://weibo.com/u/1816122347" target="_blank" title="weibo" class=tooltip>
+                            <i class="fa fa-weibo"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="http://blog.csdn.net/zhang_z_qiang" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-20180701_前端UI设计语言评估与分析" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+                    
+                        <header class="article-header">
+                            
+    
+        <h1 class="article-title" itemprop="name">
+            前端UI设计语言评估与分析
+        </h1>
+    
+
+                                
+                                    <div class="article-meta">
+                                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/07/01/20180701_前端UI设计语言评估与分析/">
+            <time datetime="2018-07-01T09:13:58.000Z" itemprop="datePublished">2018-07-01</time>
+        </a>
+    </div>
+
+
+                                            
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/前端技术/">前端技术</a>
+    </div>
+
+                                                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/React/">React</a>, <a class="tag-link" href="/tags/Web/">Web</a>
+    </div>
+
+                                    </div>
+                                    
+                        </header>
+                        
+                            
+                                <div class="article-entry" itemprop="articleBody">
+                                    
+                                            
+                                                    <h1 id="前端UI设计语言评估与分析"><a href="#前端UI设计语言评估与分析" class="headerlink" title="前端UI设计语言评估与分析"></a>前端UI设计语言评估与分析</h1><h2 id="目前状况"><a href="#目前状况" class="headerlink" title="目前状况"></a>目前状况</h2><p>由于公司业务不断延伸，在技术选型上越来越倾向于浏览器/服务器（B/S）架构模式，但是就现有系统和正在开发的系统而言，缺乏统一的前端技术方案，具体就不列举了，只简单说下：例如Web端采用的技术有ExtJS、BootStrap、Jquery等；APP端的采用的技术有原生Android，ReactNative跨平台移动开发技术等。</p>
+<p>由于开发资源的限制，在维护原有系统和开发新系统上面临资源难以满足业务发展需要的问题。考虑到公司平台融合战略，我们需要选择一个优秀的前端UI设计以减少开发人员在页面样式和动效上的时间投入，聚焦于功能实现的开发，提高整体的开发效率。</p>
+<h2 id="UI设计对比与分析"><a href="#UI设计对比与分析" class="headerlink" title="UI设计对比与分析"></a>UI设计对比与分析</h2><p>目前比较流行的UI设计有Google的Material Design、蚂蚁金服的Ant Design、以及Twitter的Bootstrap。仅从设计角度来说，Material Design具有严格的设计规范，Bootstrap是纯粹的UI框架。而Ant Design，介于这两者之间。<br>就这三种UI设计，我们做了如下对比：</p>
+<table>
+<thead>
+<tr>
+<th>对比项</th>
+<th>Material Design</th>
+<th>Ant Design</th>
+<th>Bootstrap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>维护团队</td>
+<td>Google</td>
+<td>蚂蚁金服</td>
+<td>Twitter</td>
+</tr>
+<tr>
+<td>GitHub活跃度</td>
+<td>16.2K</td>
+<td>30.2K</td>
+<td>126K</td>
+</tr>
+<tr>
+<td>主要适用框架</td>
+<td>Angular</td>
+<td>React</td>
+<td>Jquery</td>
+</tr>
+<tr>
+<td>授权协议</td>
+<td>MIT</td>
+<td>MIT</td>
+<td>MIT</td>
+</tr>
+<tr>
+<td>浏览器兼容性</td>
+<td>现代浏览器及IE9+</td>
+<td>现代浏览器及 IE9+</td>
+<td>现代浏览器及 IE8+</td>
+</tr>
+<tr>
+<td>优缺点分析</td>
+<td>提供全面的设计规范文档，但缺少官方中文说明；有很多优秀的UI框架遵照Material Design规范，诸如：Material UI、MDUI等，开发难度略高</td>
+<td>提供全面的规范说明和组件，统一中台项目的前端 UI 设计，屏蔽不必要的设计差异和实现成本，解放设计和前端的研发资源。</td>
+<td>适用于大部分前台项目的页面开发，基于它的插件也非常多，但在引用后导致管理混乱和不便的情况也很普遍。</td>
+</tr>
+<tr>
+<td>体验地址</td>
+<td><a href="https://demos.creative-tim.com/material-dashboard-react/#/dashboard" target="_blank" rel="noopener">https://demos.creative-tim.com/material-dashboard-react/#/dashboard</a></td>
+<td><a href="https://preview.pro.ant.design/#/dashboard/analysis" target="_blank" rel="noopener">https://preview.pro.ant.design/#/dashboard/analysis</a></td>
+<td><a href="http://adminlte.la998.com/" target="_blank" rel="noopener">http://adminlte.la998.com/</a></td>
+</tr>
+</tbody>
+</table>
+<p>最后，考虑到文档和资源的易用性、更加现代化的React框架和UI设计的匹配性，以及国内商业环境等因素，推荐使用Ant Design作为我们首选的UI设计语言。</p>
+<h2 id="面临的问题"><a href="#面临的问题" class="headerlink" title="面临的问题"></a>面临的问题</h2><p>虽然，Ant Design非常适合作为我们的前端UI框架，但也面临着一些问题，诸如：</p>
+<ol>
+<li><p>需要结合React才能最大程度发挥其实用价值，但是React的学习成本和门槛又比较高，对前端开发人员的技能要求就较高。需要通过培训现有人员或引入外部人员来提高团队成员的技能。</p>
+</li>
+<li><p>经过验证，由于浏览器的兼容性，React+Ant这个模式无法直接运行在装置前端的浏览器中，需要通过外部电脑访问的形式提供界面浏览。</p>
+</li>
+<li><p>由于Ant Design提供的是定制化的组件，当业务中需要引入某些Ant Design无法提供的组件的时候，由于缺乏专业的UI的人员，很难做到和其提供的组件达到一致的样式和操作体验。建议招聘专业的UI设计人员辅助开发人员提高开发效率。</p>
+</li>
+</ol>
+
+                                                        
+                                </div>
+                                <footer class="article-footer">
+                                    <div style="float: left;"> 总阅读量<span id="busuanzi_value_page_pv"><i class="fa fa-spinner"></i></span>次 </div>
+                                    <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://www.whoosh.site/2018/07/01/20180701_前端UI设计语言评估与分析/" data-id="cjj4eyghm0001kgv9b6er4w1h" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+                                    
+    
+        <a href="http://www.whoosh.site/2018/07/01/20180701_前端UI设计语言评估与分析/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.whoosh.site/2018/07/01/20180701_前端UI设计语言评估与分析/">评论</a>
+    
+
+                                </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2018/06/24/20180624_前端框架评估与分析/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">前端框架评估与分析</div>
+        </a>
+    
+</nav>
+
+
+            
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+</section>
+    
+
+        
+        </section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/07/01/20180701_前端UI设计语言评估与分析/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/react.png)" alt="前端UI设计语言评估与分析" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/前端技术/">前端技术</a></p>
+                            <p class="item-title"><a href="/2018/07/01/20180701_前端UI设计语言评估与分析/" class="title">前端UI设计语言评估与分析</a></p>
+                            <p class="item-date"><time datetime="2018-07-01T09:13:58.000Z" itemprop="datePublished">2018-07-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/06/24/20180624_前端框架评估与分析/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/react.png)" alt="前端框架评估与分析" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/前端技术/">前端技术</a></p>
+                            <p class="item-title"><a href="/2018/06/24/20180624_前端框架评估与分析/" class="title">前端框架评估与分析</a></p>
+                            <p class="item-date"><time datetime="2018-06-24T12:13:58.000Z" itemprop="datePublished">2018-06-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/06/16/20180616_项目相关方管理/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/book.jpg)" alt="项目相关方管理" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/项目管理/">项目管理</a></p>
+                            <p class="item-title"><a href="/2018/06/16/20180616_项目相关方管理/" class="title">项目相关方管理</a></p>
+                            <p class="item-date"><time datetime="2018-06-16T15:13:58.000Z" itemprop="datePublished">2018-06-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/06/09/20180609_项目采购管理/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/book.jpg)" alt="项目采购管理" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/项目管理/">项目管理</a></p>
+                            <p class="item-title"><a href="/2018/06/09/20180609_项目采购管理/" class="title">项目采购管理</a></p>
+                            <p class="item-date"><time datetime="2018-06-09T13:13:58.000Z" itemprop="datePublished">2018-06-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/06/02/20180602_项目风险管理/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/book.jpg)" alt="项目风险管理" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/项目管理/">项目管理</a></p>
+                            <p class="item-title"><a href="/2018/06/02/20180602_项目风险管理/" class="title">项目风险管理</a></p>
+                            <p class="item-date"><time datetime="2018-06-02T03:53:18.000Z" itemprop="datePublished">2018-06-02</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Development-Language/">Development Language</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactNative/">ReactNative</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/业务相关/">业务相关</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端技术/">前端技术</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/树莓派/">树莓派</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/浏览器/">浏览器</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/游记/">游记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/项目管理/">项目管理</a><span class="category-list-count">11</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canvas/">Canvas</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECharts/">ECharts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PDCharts/">PDCharts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PMBOK/">PMBOK</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PMP/">PMP</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PhantomJS/">PhantomJS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReactNative/">ReactNative</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Svg/">Svg</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Win10-IoT/">Win10 IoT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/传感器/">传感器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/旅行/">旅行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树莓派3/">树莓派3</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/管理类书籍/">管理类书籍</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Canvas/" style="font-size: 10px;">Canvas</a> <a href="/tags/ECharts/" style="font-size: 10px;">ECharts</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/PDCharts/" style="font-size: 10px;">PDCharts</a> <a href="/tags/PMBOK/" style="font-size: 20px;">PMBOK</a> <a href="/tags/PMP/" style="font-size: 20px;">PMP</a> <a href="/tags/PhantomJS/" style="font-size: 10px;">PhantomJS</a> <a href="/tags/React/" style="font-size: 13.33px;">React</a> <a href="/tags/ReactNative/" style="font-size: 16.67px;">ReactNative</a> <a href="/tags/Svg/" style="font-size: 10px;">Svg</a> <a href="/tags/Web/" style="font-size: 13.33px;">Web</a> <a href="/tags/Win10-IoT/" style="font-size: 10px;">Win10 IoT</a> <a href="/tags/传感器/" style="font-size: 10px;">传感器</a> <a href="/tags/旅行/" style="font-size: 10px;">旅行</a> <a href="/tags/树莓派3/" style="font-size: 13.33px;">树莓派3</a> <a href="/tags/管理类书籍/" style="font-size: 10px;">管理类书籍</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+            
+        </div>
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2018 Zhengqaing Zhang<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a><br>
+            总访问量<span id="busuanzi_value_site_pv"><i class="fa fa-spinner"></i></span>次 | 总访客数<span id="busuanzi_value_site_uv"><i class="fa fa-spinner"></i></span>人
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'http://www.whoosh.site/2018/07/01/20180701_前端UI设计语言评估与分析/';
+        
+        this.page.identifier = '20180701_前端UI设计语言评估与分析';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'www-whoosh-site' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
