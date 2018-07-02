@@ -14,7 +14,7 @@
 <meta property="og:description" content="这个话题其实有些宽泛，如今的前端框技术日新月异，各种框架层出不穷，令前端从业者在技术选型上眼花缭乱。在这里我也仅仅只谈谈自己的看法，如有不对，还望包含。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.whoosh.site/images/react.png">
-<meta property="og:updated_time" content="2018-07-02T15:24:25.822Z">
+<meta property="og:updated_time" content="2018-07-02T15:29:30.877Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端框架评估与分析">
 <meta name="twitter:description" content="这个话题其实有些宽泛，如今的前端框技术日新月异，各种框架层出不穷，令前端从业者在技术选型上眼花缭乱。在这里我也仅仅只谈谈自己的看法，如有不对，还望包含。">
@@ -283,7 +283,7 @@
                                             
                                                     <h1 id="前端框架评估与分析"><a href="#前端框架评估与分析" class="headerlink" title="前端框架评估与分析"></a>前端框架评估与分析</h1><h2 id="是否需要使用框架"><a href="#是否需要使用框架" class="headerlink" title="是否需要使用框架"></a>是否需要使用框架</h2><p>我想答案是肯定的。我们知道前端技术规范里有海量的API，浏览器也很难做到完全的兼容，对于主张手写Javascript的人（一般都是牛的不能行的大神），确实可以做到不用框架。但是，我认为这样会导致时间的浪费，不仅是个人的时间浪费，还会拉低团队的工作效率。在大多数情况下，由于团队成员水平不一，会给产品开发和维护带来更大的成本投入，而且这种行为也不利于团队发展，极易导致技能和经验无法的得到有效延续。</p>
 <p>很显然，一些优秀的团队或组织在不断地为前端技术框架贡献着自己的力量，能让我们站在巨人的肩膀上更加专注于自己业务的实现。接下来，我主要介绍几个目前市面上比较流行的前端框架，以供大家甄选。</p>
-<p><img src="../image/angular.png" alt="Angular"></p>
+<p><img src="/images/20180624/angular.png" alt="Angular"></p>
 <h2 id="Angular"><a href="#Angular" class="headerlink" title="Angular"></a>Angular</h2><h3 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h3><p>Angular的最大优势莫过于它的流行程度，可能是Goolgle的缘故吧。早在<code>Angular 1</code>推出之后，人们发现对于开发单页面 web 应用程序更加符合MVVM模式。通过对<code>Angular 1</code>进行现代化演变和重新构建框架的某些部分，以及一套用于构建用户界面的丰富组件，使得<code>Angular 2+</code>有了真正意义上的爆发了。</p>
 <h3 id="劣势"><a href="#劣势" class="headerlink" title="劣势"></a>劣势</h3><p>单页面应用程序如果没有提前对功能进行设计，容易导致整个项目难以维护。而且在实际项目中，运行时提供不属于核心框架的技术往往让人难以理解，这也极大的降低了<code>TypeScript</code>对最终开发者的价值。</p>
 <h3 id="何时选择"><a href="#何时选择" class="headerlink" title="何时选择"></a>何时选择</h3><ul>
@@ -292,7 +292,7 @@
 <li>你对 Google Material UX 设计模式满意，那么 Material Angular 是遵循该模式的一种快速、简单且可靠的方式</li>
 </ul>
 <p>需要注意的是 Angular1（angular.js）与 Angular2+ 是截然不同的，其中的应用、技术和经验不能直接移植到 Angular2+ 的开发中去。有理由相信在 Google 的持续支持下，Angular 会越来越成熟。</p>
-<p><img src="../image/react.png" alt="React"></p>
+<p><img src="/images/20180624/react.png" alt="React"></p>
 <h2 id="React"><a href="#React" class="headerlink" title="React"></a>React</h2><h3 id="优势-1"><a href="#优势-1" class="headerlink" title="优势"></a>优势</h3><ul>
 <li>速度快：运用了Virtual Dom技术，Reactjs只在调用setState的时候会更新dom，而且还是先更新Virtual Dom，然后和实际Dom比较，最后再更新实际Dom。</li>
 <li>兼容性好：Virtual DOM帮助我们解决了跨浏览器问题，它为我们提供了标准化的API，甚至在IE8中都是没问题的(0.x.x版本)。</li>
@@ -307,7 +307,7 @@
 <li>如果你想构建一次编写，到处运行的程序，并且结合React Native实现Web和App双端展示，React是很好的选择</li>
 <li>或者你很少需要手把手指导，并且正在寻找更好的库而不是全面的框架，那么React + Redux会给你很好的选择。 </li>
 </ul>
-<p><img src="../image/vue.png" alt="Vue"></p>
+<p><img src="/images/20180624/vue.png" alt="Vue"></p>
 <h2 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h2><h3 id="优势-2"><a href="#优势-2" class="headerlink" title="优势"></a>优势</h3><p>vue.js 最大的优势是渐进式构建能力，因为是一个构建数据驱动的 web 界面的渐进式框架。其目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件。核心是一个响应的数据绑定系统。</p>
 <p>另外，它有一个强大且充满激情的社区，这也为其增加了巨大的价值，使得为一个空白项目创建一个综合的解决方案变得十分容易。</p>
 <h3 id="劣势-2"><a href="#劣势-2" class="headerlink" title="劣势"></a>劣势</h3><p>vue的社区问题比较突出，核心的开发基本落在个人（尤雨溪）身上，而其他的项目基本是由一个组织提供支持。</p>
