@@ -14,7 +14,7 @@
 <meta property="og:description" content="本文主要介绍该系列文章的背景和目前常见的离线地图实现方案。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.whoosh.site/images/geoserver.png">
-<meta property="og:updated_time" content="2019-03-16T14:52:30.842Z">
+<meta property="og:updated_time" content="2019-03-17T14:17:35.395Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于geoserver+mapbox的定制化离线地图技术方案-01开篇">
 <meta name="twitter:description" content="本文主要介绍该系列文章的背景和目前常见的离线地图实现方案。">
@@ -192,7 +192,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                29
+                30
                 <span>文章</span>
             </div>
             <div class="article-info-block">
@@ -281,7 +281,15 @@
                                 <div class="article-entry" itemprop="articleBody">
                                     
                                             
-                                                    <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在可视化方面，地图具备天然的展示优势。近些年地图技术不断发展，已经不再满足数据展示和定位，更多情况下客户希望能与业务进行整合，提供更加直观的展示。</p>
+                                                    <ul>
+<li><a href="#%E8%83%8C%E6%99%AF">背景</a></li>
+<li><a href="#%E5%B8%B8%E8%A7%81%E6%96%B9%E6%A1%88">常见方案</a><ul>
+<li><a href="#%E7%A6%BB%E7%BA%BF%E5%9C%B0%E5%9B%BE%E5%8E%82%E5%95%86%E7%9A%84%E5%88%87%E7%89%87">离线地图厂商的切片</a></li>
+<li><a href="#%E8%87%AA%E5%BB%BA%E5%9C%B0%E5%9B%BE%E5%88%87%E7%89%87%E6%9C%8D%E5%8A%A1">自建地图切片服务</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在可视化方面，地图具备天然的展示优势。近些年地图技术不断发展，已经不再满足数据展示和定位，更多情况下客户希望能与业务进行整合，提供更加直观的展示。</p>
 <p>最初涉及到这块，是业务需要。由于业务系统需要部署在内网中，不能使用在线地图，只能想办法实现离线地图功能。加之，以前没有接触过这方面，在这条道路上踩过不少坑，希望这个系列文章能帮助那些和我一样没有GIS开发经验的朋友。好了，废话少说，直接上图。</p>
 <p><img src="/images/20190216/map.png" alt="离线地图效果"></p>
 <h2 id="常见方案"><a href="#常见方案" class="headerlink" title="常见方案"></a>常见方案</h2><p>在离线地图实现方案上，常见的有两种：</p>
@@ -388,6 +396,15 @@
         
 <nav id="article-nav">
     
+        <a href="/2019/02/24/20190224_基于geoserver+mapbox的定制化离线地图技术方案-02GIS基础知识/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    基于geoserver+mapbox的定制化离线地图技术方案-02GIS基础知识
+                
+            </div>
+        </a>
+    
     
         <a href="/2018/07/06/20180706_搭建React应用/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
@@ -421,6 +438,25 @@
         <h3 class="widget-title">最新文章</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/24/20190224_基于geoserver+mapbox的定制化离线地图技术方案-02GIS基础知识/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/geoserver.png)" alt="基于geoserver+mapbox的定制化离线地图技术方案-02GIS基础知识" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/离线地图/">离线地图</a></p>
+                            <p class="item-title"><a href="/2019/02/24/20190224_基于geoserver+mapbox的定制化离线地图技术方案-02GIS基础知识/" class="title">基于geoserver+mapbox的定制化离线地图技术方案-02GIS基础知识</a></p>
+                            <p class="item-date"><time datetime="2019-02-24T14:53:58.000Z" itemprop="datePublished">2019-02-24</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -498,25 +534,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/06/24/20180624_前端框架评估与分析/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/react.png)" alt="前端框架评估与分析" class="thumbnail-image"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/前端技术/">前端技术</a></p>
-                            <p class="item-title"><a href="/2018/06/24/20180624_前端框架评估与分析/" class="title">前端框架评估与分析</a></p>
-                            <p class="item-date"><time datetime="2018-06-24T12:13:58.000Z" itemprop="datePublished">2018-06-24</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -526,7 +543,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Development-Language/">Development Language</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactNative/">ReactNative</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/业务相关/">业务相关</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端技术/">前端技术</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/树莓派/">树莓派</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/浏览器/">浏览器</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/游记/">游记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/离线地图/">离线地图</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/项目管理/">项目管理</a><span class="category-list-count">11</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Development-Language/">Development Language</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactNative/">ReactNative</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/业务相关/">业务相关</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端技术/">前端技术</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/树莓派/">树莓派</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/浏览器/">浏览器</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/游记/">游记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/离线地图/">离线地图</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/项目管理/">项目管理</a><span class="category-list-count">11</span></li></ul>
         </div>
     </div>
 
@@ -535,7 +552,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">2</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">2</span></li></ul>
         </div>
     </div>
 
@@ -544,7 +561,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canvas/">Canvas</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECharts/">ECharts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PDCharts/">PDCharts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PMBOK/">PMBOK</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PMP/">PMP</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PhantomJS/">PhantomJS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReactNative/">ReactNative</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Svg/">Svg</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Win10-IoT/">Win10 IoT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/geoserver/">geoserver</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mapbox/">mapbox</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/osm/">osm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/传感器/">传感器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/旅行/">旅行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树莓派3/">树莓派3</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/管理类书籍/">管理类书籍</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canvas/">Canvas</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECharts/">ECharts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PDCharts/">PDCharts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PMBOK/">PMBOK</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PMP/">PMP</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PhantomJS/">PhantomJS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReactNative/">ReactNative</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Svg/">Svg</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Win10-IoT/">Win10 IoT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/geoserver/">geoserver</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mapbox/">mapbox</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/osm/">osm</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/传感器/">传感器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/旅行/">旅行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树莓派3/">树莓派3</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/管理类书籍/">管理类书籍</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -553,7 +570,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Canvas/" style="font-size: 10px;">Canvas</a> <a href="/tags/ECharts/" style="font-size: 10px;">ECharts</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/PDCharts/" style="font-size: 10px;">PDCharts</a> <a href="/tags/PMBOK/" style="font-size: 20px;">PMBOK</a> <a href="/tags/PMP/" style="font-size: 20px;">PMP</a> <a href="/tags/PhantomJS/" style="font-size: 10px;">PhantomJS</a> <a href="/tags/React/" style="font-size: 16.67px;">React</a> <a href="/tags/ReactNative/" style="font-size: 16.67px;">ReactNative</a> <a href="/tags/Svg/" style="font-size: 10px;">Svg</a> <a href="/tags/Web/" style="font-size: 16.67px;">Web</a> <a href="/tags/Win10-IoT/" style="font-size: 10px;">Win10 IoT</a> <a href="/tags/geoserver/" style="font-size: 10px;">geoserver</a> <a href="/tags/mapbox/" style="font-size: 10px;">mapbox</a> <a href="/tags/osm/" style="font-size: 10px;">osm</a> <a href="/tags/传感器/" style="font-size: 10px;">传感器</a> <a href="/tags/旅行/" style="font-size: 10px;">旅行</a> <a href="/tags/树莓派3/" style="font-size: 13.33px;">树莓派3</a> <a href="/tags/管理类书籍/" style="font-size: 10px;">管理类书籍</a>
+            <a href="/tags/Canvas/" style="font-size: 10px;">Canvas</a> <a href="/tags/ECharts/" style="font-size: 10px;">ECharts</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/PDCharts/" style="font-size: 10px;">PDCharts</a> <a href="/tags/PMBOK/" style="font-size: 20px;">PMBOK</a> <a href="/tags/PMP/" style="font-size: 20px;">PMP</a> <a href="/tags/PhantomJS/" style="font-size: 10px;">PhantomJS</a> <a href="/tags/React/" style="font-size: 16.67px;">React</a> <a href="/tags/ReactNative/" style="font-size: 16.67px;">ReactNative</a> <a href="/tags/Svg/" style="font-size: 10px;">Svg</a> <a href="/tags/Web/" style="font-size: 16.67px;">Web</a> <a href="/tags/Win10-IoT/" style="font-size: 10px;">Win10 IoT</a> <a href="/tags/geoserver/" style="font-size: 13.33px;">geoserver</a> <a href="/tags/mapbox/" style="font-size: 13.33px;">mapbox</a> <a href="/tags/osm/" style="font-size: 13.33px;">osm</a> <a href="/tags/传感器/" style="font-size: 10px;">传感器</a> <a href="/tags/旅行/" style="font-size: 10px;">旅行</a> <a href="/tags/树莓派3/" style="font-size: 13.33px;">树莓派3</a> <a href="/tags/管理类书籍/" style="font-size: 10px;">管理类书籍</a>
         </div>
     </div>
 
