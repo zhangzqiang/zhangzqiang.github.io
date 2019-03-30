@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+<head>
+    <meta charset="utf-8">
+    
+    <title>基于geoserver+mapbox的定制化离线地图技术方案-03技术路线 | WHOOSH</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="本文主要介绍离线地图方案里所涉及主要的三个开源技术点：地图数据、Geoserver和Mapbox的使用。">
+<meta name="keywords" content="osm,geoserver,mapbox">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于geoserver+mapbox的定制化离线地图技术方案-03技术路线">
+<meta property="og:url" content="http://www.whoosh.site/2019/03/03/20190303_基于geoserver+mapbox的定制化离线地图技术方案-03技术路线/index.html">
+<meta property="og:site_name" content="WHOOSH">
+<meta property="og:description" content="本文主要介绍离线地图方案里所涉及主要的三个开源技术点：地图数据、Geoserver和Mapbox的使用。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.whoosh.site/images/geoserver.png">
+<meta property="og:updated_time" content="2019-03-30T09:14:20.855Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基于geoserver+mapbox的定制化离线地图技术方案-03技术路线">
+<meta name="twitter:description" content="本文主要介绍离线地图方案里所涉及主要的三个开源技术点：地图数据、Geoserver和Mapbox的使用。">
+<meta name="twitter:image" content="http://www.whoosh.site/images/geoserver.png">
+    
+
+    
+        <link rel="alternate" href="http://blog.csdn.net/zhang_z_qiang" title="WHOOSH" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/favicon.ico" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">WHOOSH</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">
+                        主页
+                    </a>
+                    
+                    <a class="main-nav-link" href="/archives">
+                        归档
+                    </a>
+                    
+                    <a class="main-nav-link" href="/categories">
+                        分类
+                    </a>
+                    
+                    <a class="main-nav-link" href="/tags">
+                        标签
+                    </a>
+                    
+                    <a class="main-nav-link" href="/about">
+                        关于
+                    </a>
+                    
+            </nav>
+            
+                
+                    <nav id="sub-nav">
+                        <div class="profile" id="profile-nav">
+                            <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.jpg" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                        </div>
+                    </nav>
+                    
+                        <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td>
+                        <a class="main-nav-link" href="/.">
+                            主页
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a class="main-nav-link" href="/archives">
+                            归档
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a class="main-nav-link" href="/categories">
+                            分类
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a class="main-nav-link" href="/tags">
+                            标签
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a class="main-nav-link" href="/about">
+                            关于
+                        </a>
+                    </td>
+                    
+                        <td>
+                            
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                        </td>
+            </tr>
+        </table>
+    </div>
+</header>
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.jpg" />
+            <h2 id="name">zhang_z_qiang</h2>
+            <h3 id="title">Web &amp; .NET Developer</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Shanghai, China</span>
+            <a id="follow" target="_blank" href="https://github.com/zhangzqiang/">关注我</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                31
+                <span>文章</span>
+            </div>
+            <div class="article-info-block">
+                20
+                <span>标签</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/zhangzqiang/" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="wechat" class=tooltip>
+                            <i class="fa fa-wechat"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://weibo.com/u/1816122347" target="_blank" title="weibo" class=tooltip>
+                            <i class="fa fa-weibo"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="http://blog.csdn.net/zhang_z_qiang" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-20190303_基于geoserver+mapbox的定制化离线地图技术方案-03技术路线" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+                    
+                        <header class="article-header">
+                            
+    
+        <h1 class="article-title" itemprop="name">
+            基于geoserver+mapbox的定制化离线地图技术方案-03技术路线
+        </h1>
+    
+
+                                
+                                    <div class="article-meta">
+                                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2019/03/03/20190303_基于geoserver+mapbox的定制化离线地图技术方案-03技术路线/">
+            <time datetime="2019-03-03T15:53:58.000Z" itemprop="datePublished">2019-03-03</time>
+        </a>
+    </div>
+
+
+                                            
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/离线地图/">离线地图</a>
+    </div>
+
+                                                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/geoserver/">geoserver</a>, <a class="tag-link" href="/tags/mapbox/">mapbox</a>, <a class="tag-link" href="/tags/osm/">osm</a>
+    </div>
+
+                                    </div>
+                                    
+                        </header>
+                        
+                            
+                                <div class="article-entry" itemprop="articleBody">
+                                    
+                                            
+                                                    <ul>
+<li><a href="#%E6%A6%82%E8%A6%81">概要</a></li>
+<li><a href="#%E5%9C%B0%E5%9B%BE%E6%95%B0%E6%8D%AE">地图数据</a></li>
+<li><a href="#geoserver">Geoserver</a><ul>
+<li><a href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C">准备工作</a></li>
+<li><a href="#%E5%9D%90%E6%A0%87%E7%B3%BB%E7%AE%A1%E7%90%86">坐标系管理</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AE%E5%88%87%E7%89%87%E5%8F%82%E6%95%B0">配置切片参数</a></li>
+<li><a href="#%E5%A4%84%E7%90%86%E5%88%87%E7%89%87%E6%95%B0%E6%8D%AE">处理切片数据</a></li>
+<li><a href="#%E5%8F%91%E5%B8%83%E5%88%87%E7%89%87%E6%9C%8D%E5%8A%A1">发布切片服务</a></li>
+</ul>
+</li>
+<li><a href="#mapbox%E6%B5%8F%E8%A7%88">Mapbox浏览</a></li>
+<li><a href="#%E5%B0%8F%E7%BB%93">小结</a></li>
+</ul>
+<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>第一节提到自建地图切片服务所需要的<a href="/2019/02/16/20190216_基于geoserver+mapbox的定制化离线地图技术方案-01开篇/#自建地图切片服务">系统架构</a>，这篇主要介绍离线地图方案里所涉及主要的三个开源技术点：</p>
+<ol>
+<li>基于OSM地理数据的Shapefile文件，主要存储空间地理信息。</li>
+<li>GeoServer进行图层数据的管理，以及矢量切切片的生成。</li>
+<li>Mapbox进行图层样式的设计，以及地图展示与操作功能。</li>
+</ol>
+<h2 id="地图数据"><a href="#地图数据" class="headerlink" title="地图数据"></a>地图数据</h2><p>上一节中，介绍过OSM地图数据相关知识，本节不再赘述，主要说下地图数据的获取。在网上可以找到各种范围的数据，内容不好区分，有的老旧，有的不是项目需要的。如果需要更加合适的数据，需要使用空间数据库Postgresql进行调整。因此，本章中采用事先准备好的中国地理数据的Shapefile文件，链接：<a href="https://pan.baidu.com/s/1mUhaXbMX0agEjPiet6YdOA" target="_blank" rel="noopener">https://pan.baidu.com/s/1mUhaXbMX0agEjPiet6YdOA</a> 提取码：k3tn </p>
+<p>当然，你也可以在OSM中自行<a href="http://download.geofabrik.de/" target="_blank" rel="noopener">下载</a>你所需要的数据。</p>
+<h2 id="Geoserver"><a href="#Geoserver" class="headerlink" title="Geoserver"></a>Geoserver</h2><h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p><a href="http://geoserver.org" target="_blank" rel="noopener">GeoServer</a> 是 OpenGIS Web 服务器规范的 J2EE 实现，利用 GeoServer 可以方便的发布地图数据，允许用户对特征数据进行更新、删除、插入操作，通过 GeoServer 可以比较容易的在用户之间迅速共享空间地理信息。为了获得矢量切片，需要添加Vector Tiles插件。下载插件之后放入geoserver安装目录<code>\webapps\geoserver\WEB-INF\lib</code>下，重启GeoServer服务。</p>
+<p>GeoServer的默认用户密码：</p>
+<p>用户名：admin</p>
+<p>密码：geoserver</p>
+<p>GeoServer下载地址：<a href="http://geoserver.org/download/" target="_blank" rel="noopener">http://geoserver.org/download/</a></p>
+<p>Vector Tiles下载地址：<a href="http://geoserver.org/release/stable/" target="_blank" rel="noopener">http://geoserver.org/release/stable/</a></p>
+<p><img src="/images/20190303/矢量切片插件.png" alt="矢量切片插件"></p>
+<h3 id="坐标系管理"><a href="#坐标系管理" class="headerlink" title="坐标系管理"></a>坐标系管理</h3><p>GeoServer会默认提供一些常用的坐标系，例如<code>EPSG:4326</code>、<code>EPSG:900913</code>，如果不满足，可以点击<code>Create a new gridset</code>新建一个，然后选择一个需要的坐标系，并制定切片层级即可。</p>
+<p><img src="/images/20190303/坐标系.png" alt="新建坐标系"></p>
+<h3 id="配置切片参数"><a href="#配置切片参数" class="headerlink" title="配置切片参数"></a>配置切片参数</h3><p>对于默认缓存参数的设置，需要注意以下三点：</p>
+<p><strong>1.</strong> 选择<code>Provided Services</code>，在此选择了<code>Enable TMS Service</code>。</p>
+<p><strong>2.</strong> 选择<code>Default Tile Image Formats</code>，在此选择了<code>application/vnd.mapbox-vector-tile</code>。</p>
+<p><strong>3.</strong> 选择<code>Default Cached Gridsets</code>，一般选择<code>EPSG:900913</code>即可。</p>
+<p><img src="/images/20190303/默认缓存设置1.png" alt="默认缓存设置"></p>
+<p><img src="/images/20190303/默认缓存设置2.png" alt="默认缓存设置"></p>
+<h3 id="处理切片数据"><a href="#处理切片数据" class="headerlink" title="处理切片数据"></a>处理切片数据</h3><p><strong>1.</strong> 点击<code>工作区</code>菜单，在新建工作区面板，给工作区命名，命名空间可以随意填写，默认工作区建议勾选，点击<code>提交</code>即可。</p>
+<p><img src="/images/20190303/新建工作区.png" alt="新建工作区"></p>
+<p><strong>2.</strong> 点击<code>数据存储</code>菜单，在数据存储面板，点击<code>添加新的数据存储</code>，弹出面板选择需要关联的地图数据。</p>
+<p><img src="/images/20190303/新建数据存储.jpg" alt="新建数据存储"></p>
+<p><strong>3.</strong> 在新建数据源面板支持三种数据源：矢量树源、栅格数据源、其他数据源。这里我们选择矢量数据源下的<code>Directory of spatial files(shapfiles)</code>，这个是shapfile文件夹，不用一个个的去选择shapflie文件。</p>
+<p><img src="/images/20190303/新建数据源.jpg" alt="新建数据源"></p>
+<p><strong>4.</strong> 在工作区选择刚才添加的工作区名称，点击<code>浏览</code>，在弹出窗定位到地图shap文件所在的<code>数据目录</code>，另外，DBF字符集根据情况选择，一般选择UTF-8或GBK，主要是看地图数据文件的中文字符采用何种编码格式。单击<code>确定</code>后会进入图层发布阶段。</p>
+<p><img src="/images/20190303/选择数据源目录.jpg" alt="选择数据源目录"></p>
+<p><strong>5.</strong> 点击<code>图层</code>菜单，在图层面板，点击<code>添加新的资源</code>，然后在添加图层中选择上一步添加的<code>数据存储名称</code>，列表展示该数据存储中所包含的所有矢量数据图层，点击每项<code>发布</code>或者<code>再次发布</code>，进入图层发布前参数配置过程。</p>
+<p><img src="/images/20190303/新建图层.jpg" alt="新建图层"></p>
+<p><img src="/images/20190303/发布图层.jpg" alt="发布图层"></p>
+<p><strong>6.</strong> 一般情况下，我会去掉广告勾选，然后点击<code>Compute from native bounds</code>,这样Geoserver会自动计算边框和经纬度信息，然后勾选<code>Linear geometries can contain cicular arcs</code>，这样线性几何图形就会包含环形弧，然后点击<code>保存</code>即可。这个环节非常不友好，每个要发布的图层都要重复的进行前面的步骤，相当繁琐。</p>
+<p><img src="/images/20190303/编辑图层-数据1.jpg" alt="编辑图层"></p>
+<p><img src="/images/20190303/编辑图层-数据2.jpg" alt="编辑图层"></p>
+<p><img src="/images/20190303/编辑图层-数据3.jpg" alt="编辑图层"></p>
+<p><strong>7.</strong> 点击<code>图层组</code>菜单，在图层组面板，点击<code>添加新图层组</code>，然后给图层组命名，<br><em>注意，这个图层组的名称在访问切片服务的时候会用到</em> 。工作区选择上面步骤中的工作区名称，然后就是添加图层或图层组了，这里的图层不支持多选，要一个一个的添加，而且没有重复提示，需要很细心。</p>
+<p><img src="/images/20190303/新建图层组.jpg" alt="新建图层组"></p>
+<p><img src="/images/20190303/新建图层组-数据.jpg" alt="新建图层组"></p>
+<p><img src="/images/20190303/添加图层.jpg" alt="添加图层"></p>
+<p><strong>8.</strong> 在图层添加完成之后，点击<code>生成边界</code>，Geoserver会计算当前图层组的地图边界。然后点击<code>保存</code>，一个地图服务就发布完成了。</p>
+<p><img src="/images/20190303/添加图层-生成边界.jpg" alt="添加图层-生成边界"></p>
+<p><strong>9.</strong> 点击<code>Layers Preview</code>，然后点击openLayers进行地图预览，这个时候随意点击地图，如果地图下方的地图信息的中文出现乱码，就去数据存储中修改<code>DBF字符集</code>。</p>
+<p><img src="/images/20190303/图层预览.jpg" alt="图层预览"></p>
+<h3 id="发布切片服务"><a href="#发布切片服务" class="headerlink" title="发布切片服务"></a>发布切片服务</h3><p>接下来就是如何在外部访问切片服务了，首先，点击Geoserver的<code>logo</code>，然后选择选择<code>TMS</code> 1.0.0协议，页面跳转后，查找需要访问的外部地址。</p>
+<p><img src="/images/20190303/切片服务入口.png" alt="切片服务入口"></p>
+<p><img src="/images/20190303/切片服务地址.png" alt="切片服务地址"></p>
+<h2 id="Mapbox浏览"><a href="#Mapbox浏览" class="headerlink" title="Mapbox浏览"></a>Mapbox浏览</h2><p><a href="https://www.mapbox.com/" target="_blank" rel="noopener">mapbox</a>专注于帮助企业打造定制化地图应用，可以开发和定制Web、Android、IOS、Qt、VR、无人驾驶、甚至是游戏地图场景等。是一家“你看不见我，但我无处不在”的企业。客户包括特斯拉、DJI大疆、孤独星球、Airbnb、GitHub、Cisco、Snap、飞猪、Keep、Bosch等。</p>
+<blockquote>
+<p>Mapbox customers are shaping the way 420 million people explore the world</p>
+</blockquote>
+<p><a href="https://docs.mapbox.com/mapbox-gl-js/api/" target="_blank" rel="noopener">mapbox-gl</a>是Mapbox一款开源Web地图服务解决方案，用于搭建精美的地图服务，可以免费创建并定制个性化地图的网站。他最大的优点就是可以使用类似于css的样式来描述地图，并提供<a href="https://www.mapbox.com/mapbox-studio/" target="_blank" rel="noopener">mapbox-studio</a>来直观设计和生成精美的样式。</p>
+<p>首先，看一下页面效果：</p>
+<p><img src="/images/20190303/预览.png" alt="页面预览"></p>
+<p>主要逻辑代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">'utf-8'</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Display a map with a custom style<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">'viewport'</span> <span class="attr">content</span>=<span class="string">'initial-scale=1,maximum-scale=1,user-scalable=no'</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">'https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">'https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css'</span> <span class="attr">rel</span>=<span class="string">'stylesheet'</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">        body &#123;</span></span><br><span class="line"><span class="undefined">            margin: 0;</span></span><br><span class="line"><span class="undefined">            padding: 0;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        #map &#123;</span></span><br><span class="line"><span class="undefined">            position: absolute;</span></span><br><span class="line"><span class="undefined">            top: 0;</span></span><br><span class="line"><span class="undefined">            bottom: 0;</span></span><br><span class="line"><span class="undefined">            width: 100%;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">'map'</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">        var mapStyle = &#123;</span></span><br><span class="line"><span class="undefined">            version: 8,</span></span><br><span class="line"><span class="undefined">            sources: &#123;</span></span><br><span class="line"><span class="undefined">                china: &#123;</span></span><br><span class="line"><span class="undefined">                    type: 'vector',</span></span><br><span class="line"><span class="undefined">                    scheme: 'tms',</span></span><br><span class="line"><span class="undefined">                    tiles: ['http://127.0.0.1:28080/geoserver/gwc/service/tms/1.0.0/map:china_sketchy@EPSG:900913@pbf/&#123;z&#125;/&#123;x&#125;/&#123;y&#125;.pbf'],</span></span><br><span class="line"><span class="undefined">                &#125;,</span></span><br><span class="line"><span class="undefined">            &#125;,</span></span><br><span class="line"><span class="undefined">            transition: &#123;</span></span><br><span class="line"><span class="undefined">                duration: 300,</span></span><br><span class="line"><span class="undefined">                delay: 0,</span></span><br><span class="line"><span class="undefined">            &#125;,</span></span><br><span class="line"><span class="undefined">            layers: [&#123;</span></span><br><span class="line"><span class="undefined">                id: 'background',</span></span><br><span class="line"><span class="undefined">                type: 'background',</span></span><br><span class="line"><span class="undefined">                layout: &#123;</span></span><br><span class="line"><span class="undefined">                    visibility: 'visible',</span></span><br><span class="line"><span class="undefined">                &#125;,</span></span><br><span class="line"><span class="undefined">                paint: &#123;</span></span><br><span class="line"><span class="undefined">                    'background-color': &#123;</span></span><br><span class="line"><span class="undefined">                        base: 1,</span></span><br><span class="line"><span class="undefined">                        stops: [</span></span><br><span class="line"><span class="undefined">                            [2, 'transparent'],</span></span><br><span class="line"><span class="undefined">                            [8, '#0e1e2d'],</span></span><br><span class="line"><span class="undefined">                        ],</span></span><br><span class="line"><span class="undefined">                    &#125;,</span></span><br><span class="line"><span class="undefined">                &#125;,</span></span><br><span class="line"><span class="undefined">            &#125;, &#123;</span></span><br><span class="line"><span class="undefined">                id: 'china_province',</span></span><br><span class="line"><span class="undefined">                type: 'fill',</span></span><br><span class="line"><span class="undefined">                source: 'china',</span></span><br><span class="line"><span class="undefined">                'source-layer': 'province',</span></span><br><span class="line"><span class="undefined">                minzoom: 3,</span></span><br><span class="line"><span class="undefined">                maxzoom: 9,</span></span><br><span class="line"><span class="undefined">                filter: ['all', ['==', '$type', 'Polygon']],</span></span><br><span class="line"><span class="undefined">                layout: &#123;</span></span><br><span class="line"><span class="undefined">                    visibility: 'visible',</span></span><br><span class="line"><span class="undefined">                &#125;,</span></span><br><span class="line"><span class="undefined">                paint: &#123;</span></span><br><span class="line"><span class="undefined">                    'fill-outline-color': '#3490ff',</span></span><br><span class="line"><span class="undefined">                    'fill-color': '#112b45',</span></span><br><span class="line"><span class="undefined">                    'fill-antialias': true,</span></span><br><span class="line"><span class="undefined">                    'fill-opacity': 1,</span></span><br><span class="line"><span class="undefined">                &#125;,</span></span><br><span class="line"><span class="undefined">            &#125;,],</span></span><br><span class="line"><span class="undefined">            _ssl: true,</span></span><br><span class="line"><span class="undefined">        &#125;;</span></span><br><span class="line"><span class="undefined">        var map = new mapboxgl.Map(&#123;</span></span><br><span class="line"><span class="undefined">            container: 'map', // container id</span></span><br><span class="line"><span class="undefined">            style: mapStyle, //hosted style id</span></span><br><span class="line"><span class="undefined">            center: [116, 39], // starting position</span></span><br><span class="line"><span class="undefined">            zoom: 3 // starting zoom</span></span><br><span class="line"><span class="undefined">        &#125;);</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>通过浏览器访问，可能会出现跨域问题，这里先通过设置chrome浏览器参数解决，配置方法可参照<a href="https://www.cnblogs.com/congxueda/p/7053814.html" target="_blank" rel="noopener">chrome浏览器解决跨域调试问题</a>。后面的章节会介绍如何通过设置GeoServer解决跨域问题。</p>
+<p><img src="/images/20190303/跨域.png" alt="跨域问题"></p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>这一节主要介绍了如何实现地图切片服务和通过mapbox加载地图，是一些基础的东西，对于地图样式定制化，将在下一节中具体介绍。</p>
+
+                                                        
+                                </div>
+                                <footer class="article-footer">
+                                    <div style="float: left;"> 总阅读量<span id="busuanzi_value_page_pv"><i class="fa fa-spinner"></i></span>次 </div>
+                                    <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://www.whoosh.site/2019/03/03/20190303_基于geoserver+mapbox的定制化离线地图技术方案-03技术路线/" data-id="cjtva4g8q000tnsv9fp3kq2rs" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+                                    
+    
+        <a href="http://www.whoosh.site/2019/03/03/20190303_基于geoserver+mapbox的定制化离线地图技术方案-03技术路线/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://www.whoosh.site/2019/03/03/20190303_基于geoserver+mapbox的定制化离线地图技术方案-03技术路线/">评论</a>
+    
+
+                                </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2019/02/24/20190224_基于geoserver+mapbox的定制化离线地图技术方案-02GIS基础知识/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">基于geoserver+mapbox的定制化离线地图技术方案-02GIS基础知识</div>
+        </a>
+    
+</nav>
+
+
+            
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+</section>
+    
+
+        
+        </section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/03/03/20190303_基于geoserver+mapbox的定制化离线地图技术方案-03技术路线/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/geoserver.png)" alt="基于geoserver+mapbox的定制化离线地图技术方案-03技术路线" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/离线地图/">离线地图</a></p>
+                            <p class="item-title"><a href="/2019/03/03/20190303_基于geoserver+mapbox的定制化离线地图技术方案-03技术路线/" class="title">基于geoserver+mapbox的定制化离线地图技术方案-03技术路线</a></p>
+                            <p class="item-date"><time datetime="2019-03-03T15:53:58.000Z" itemprop="datePublished">2019-03-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/24/20190224_基于geoserver+mapbox的定制化离线地图技术方案-02GIS基础知识/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/geoserver.png)" alt="基于geoserver+mapbox的定制化离线地图技术方案-02GIS基础知识" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/离线地图/">离线地图</a></p>
+                            <p class="item-title"><a href="/2019/02/24/20190224_基于geoserver+mapbox的定制化离线地图技术方案-02GIS基础知识/" class="title">基于geoserver+mapbox的定制化离线地图技术方案-02GIS基础知识</a></p>
+                            <p class="item-date"><time datetime="2019-02-24T14:53:58.000Z" itemprop="datePublished">2019-02-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/16/20190216_基于geoserver+mapbox的定制化离线地图技术方案-01开篇/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/geoserver.png)" alt="基于geoserver+mapbox的定制化离线地图技术方案-01开篇" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/离线地图/">离线地图</a></p>
+                            <p class="item-title"><a href="/2019/02/16/20190216_基于geoserver+mapbox的定制化离线地图技术方案-01开篇/" class="title">基于geoserver+mapbox的定制化离线地图技术方案-01开篇</a></p>
+                            <p class="item-date"><time datetime="2019-02-16T11:53:58.000Z" itemprop="datePublished">2019-02-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/07/06/20180706_搭建React应用/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/react.png)" alt="搭建React应用模板" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/前端技术/">前端技术</a></p>
+                            <p class="item-title"><a href="/2018/07/06/20180706_搭建React应用/" class="title">搭建React应用模板</a></p>
+                            <p class="item-date"><time datetime="2018-07-06T11:53:58.000Z" itemprop="datePublished">2018-07-06</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/07/04/20180704_搭建前端开发环境/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/vscode.png)" alt="搭建前端开发环境" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/前端技术/">前端技术</a></p>
+                            <p class="item-title"><a href="/2018/07/04/20180704_搭建前端开发环境/" class="title">搭建前端开发环境</a></p>
+                            <p class="item-date"><time datetime="2018-07-04T13:13:58.000Z" itemprop="datePublished">2018-07-04</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Development-Language/">Development Language</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactNative/">ReactNative</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/业务相关/">业务相关</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端技术/">前端技术</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/树莓派/">树莓派</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/浏览器/">浏览器</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/游记/">游记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/离线地图/">离线地图</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/项目管理/">项目管理</a><span class="category-list-count">11</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canvas/">Canvas</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECharts/">ECharts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PDCharts/">PDCharts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PMBOK/">PMBOK</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PMP/">PMP</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PhantomJS/">PhantomJS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReactNative/">ReactNative</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Svg/">Svg</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Win10-IoT/">Win10 IoT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/geoserver/">geoserver</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mapbox/">mapbox</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/osm/">osm</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/传感器/">传感器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/旅行/">旅行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树莓派3/">树莓派3</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/管理类书籍/">管理类书籍</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Canvas/" style="font-size: 10px;">Canvas</a> <a href="/tags/ECharts/" style="font-size: 10px;">ECharts</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/PDCharts/" style="font-size: 10px;">PDCharts</a> <a href="/tags/PMBOK/" style="font-size: 20px;">PMBOK</a> <a href="/tags/PMP/" style="font-size: 20px;">PMP</a> <a href="/tags/PhantomJS/" style="font-size: 10px;">PhantomJS</a> <a href="/tags/React/" style="font-size: 17.5px;">React</a> <a href="/tags/ReactNative/" style="font-size: 17.5px;">ReactNative</a> <a href="/tags/Svg/" style="font-size: 10px;">Svg</a> <a href="/tags/Web/" style="font-size: 17.5px;">Web</a> <a href="/tags/Win10-IoT/" style="font-size: 10px;">Win10 IoT</a> <a href="/tags/geoserver/" style="font-size: 15px;">geoserver</a> <a href="/tags/mapbox/" style="font-size: 15px;">mapbox</a> <a href="/tags/osm/" style="font-size: 15px;">osm</a> <a href="/tags/传感器/" style="font-size: 10px;">传感器</a> <a href="/tags/旅行/" style="font-size: 10px;">旅行</a> <a href="/tags/树莓派3/" style="font-size: 12.5px;">树莓派3</a> <a href="/tags/管理类书籍/" style="font-size: 10px;">管理类书籍</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/zhangzqiang">Github</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+            
+        </div>
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2019 Zhengqaing Zhang<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a><br>
+            总访问量<span id="busuanzi_value_site_pv"><i class="fa fa-spinner"></i></span>次 | 总访客数<span id="busuanzi_value_site_uv"><i class="fa fa-spinner"></i></span>人
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'http://www.whoosh.site/2019/03/03/20190303_基于geoserver+mapbox的定制化离线地图技术方案-03技术路线/';
+        
+        this.page.identifier = '20190303_基于geoserver+mapbox的定制化离线地图技术方案-03技术路线';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'www-whoosh-site' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
